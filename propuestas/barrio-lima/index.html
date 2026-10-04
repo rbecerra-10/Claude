@@ -1,34 +1,36 @@
 <title>Barrio Lima Web</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Figtree:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Alfa+Slab+One&family=Kaushan+Script&family=Figtree:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Layout: documento de propuesta en una columna ancha; el mockup vive dentro de marcos de navegador y teléfono con su propia identidad "cartel chicha" limeña. */
+/* Layout: documento de propuesta en una columna ancha; el mockup vive dentro de marcos de navegador y teléfono con la identidad del logo de Barrio Lima. */
 :root{
   /* Documento (tema claro) */
   --bg:#f3f4f7; --paper:#ffffff; --ink:#191a24; --muted:#5d6072; --line:#dcdee6;
-  --accent:#6b2d8f;      /* chicha morada */
-  --accent-soft:#efe6f5;
+  --accent:#7a2232;      /* vino del logo */
+  --accent-soft:#f7e9e6;
   --good:#1f7a4d;
-  /* Marca del restaurante (mockup, look fijo nocturno) */
-  --bl-night:#121018; --bl-night2:#1c1826; --bl-pink:#ff3d8b; --bl-yellow:#ffd23f;
-  --bl-green:#39e07a; --bl-orange:#ff7a2f; --bl-cream:#fbf6ee; --bl-text:#ece8f2; --bl-dim:#a59fb4;
+  /* Marca del restaurante (mockup, look fijo claro como el logo) */
+  --bl-paper:#fffaf3; --bl-ink:#3a1a1f; --bl-ink2:#6b4a4e; --bl-line:#eedfd2;
+  --bl-wine:#6e1f2b; --bl-pink:#e8407c; --bl-red:#e8523f; --bl-purple:#7a3c9a; --bl-magenta:#d6337a;
+  --bl-teal:#22a9b8; --bl-orange:#f39a2b; --bl-orange-d:#d9701a; --bl-green:#8dc63f; --bl-gold:#d9a326;
   /* Tipos */
   --f-display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
   --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
   --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
-  --f-chicha:"Bungee", Impact, "Arial Black", sans-serif;
-  --f-chicha-shade:"Bungee Shade", "Bungee", Impact, sans-serif;
+  --f-paint:"Londrina Solid", "Arial Narrow", Impact, sans-serif;
+  --f-slab:"Alfa Slab One", Rockwell, Georgia, serif;
+  --f-script:"Kaushan Script", "Brush Script MT", cursive;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#14141b; --paper:#1d1d27; --ink:#ecebf3; --muted:#a3a4b5; --line:#33343f;
-    --accent:#c9a0e6; --accent-soft:#2c2338; --good:#5fd197; color-scheme:dark;
+    --accent:#f0a48c; --accent-soft:#3a2426; --good:#5fd197; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#14141b; --paper:#1d1d27; --ink:#ecebf3; --muted:#a3a4b5; --line:#33343f;
-  --accent:#c9a0e6; --accent-soft:#2c2338; --good:#5fd197; color-scheme:dark;
+  --accent:#f0a48c; --accent-soft:#3a2426; --good:#5fd197; color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
@@ -58,109 +60,131 @@ section.part{padding-block:44px 8px;display:grid;gap:22px;scroll-margin-top:60px
 .step{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
 
 /* ---------- MOCKUP ---------- */
+/* Marca: fondo papel blanco como el logo, letras multicolor pintadas a mano, vino para títulos, mancha de acuarela naranja, sol inca dorado y greca andina. */
 .mock-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start}
 @media (max-width:960px){.mock-grid{grid-template-columns:minmax(0,1fr)}.phone{justify-self:center}}
-.browser{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 18px 40px -22px rgba(20,10,40,.45)}
+.browser{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 18px 40px -22px rgba(60,20,20,.45)}
 .chrome{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--paper);border-bottom:1px solid var(--line)}
 .dots{display:flex;gap:6px}.dots i{width:11px;height:11px;border-radius:50%;background:var(--line);display:block}
 .url{flex:1;min-width:0;font-family:var(--f-mono);font-size:12px;color:var(--muted);background:var(--bg);border-radius:6px;padding:5px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-.site{background:var(--bl-night);color:var(--bl-text);font-family:var(--f-body)}
-.s-nav{display:flex;align-items:center;gap:22px;padding:16px 28px;border-bottom:1px solid #2a2436;flex-wrap:wrap}
-.logo{font-family:var(--f-chicha);font-size:22px;line-height:1;letter-spacing:.01em;color:var(--bl-yellow)}
-.logo span{color:var(--bl-pink)}
-.s-nav nav{display:flex;gap:18px;margin-left:auto;font-size:14px;color:var(--bl-dim);flex-wrap:wrap}
-.btn-chicha{font-family:var(--f-chicha);font-size:13px;letter-spacing:.03em;background:var(--bl-pink);color:var(--bl-night);border:0;border-radius:4px;padding:10px 14px;cursor:pointer;text-decoration:none;display:inline-block}
-.btn-ghost{font-family:var(--f-chicha);font-size:13px;background:transparent;color:var(--bl-yellow);border:2px solid var(--bl-yellow);border-radius:4px;padding:8px 14px;cursor:pointer}
+.site{background:var(--bl-paper);color:var(--bl-ink);font-family:var(--f-body);color-scheme:light}
+.greca{height:14px;background-color:transparent;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='14'%3E%3Cpath d='M0 14V10H6V6H12V2H18V0H30V2H36V6H42V10H48V14Z' fill='%236e1f2b'/%3E%3C/svg%3E");background-repeat:repeat-x;background-size:48px 14px}
+.greca.flip{transform:scaleY(-1)}
+.greca.gold{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='14'%3E%3Cpath d='M0 14V10H6V6H12V2H18V0H30V2H36V6H42V10H48V14Z' fill='%23d9a326'/%3E%3C/svg%3E")}
+.topstrip{background:var(--bl-wine);color:var(--bl-paper);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:7px 28px}
+.s-nav{display:flex;align-items:center;gap:22px;padding:10px 28px;flex-wrap:wrap;background:var(--bl-paper)}
+.s-nav img{height:64px;width:auto;display:block}
+.s-nav nav{display:flex;gap:20px;margin-left:auto;font-size:14px;font-weight:600;color:var(--bl-wine);flex-wrap:wrap}
+.btn-bl{font-family:var(--f-paint);font-size:17px;letter-spacing:.04em;background:var(--bl-pink);color:#fff;border:0;border-radius:6px;padding:9px 18px;cursor:pointer;text-decoration:none;display:inline-block;box-shadow:3px 3px 0 var(--bl-wine)}
+.btn-bl:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--bl-wine)}
+.btn-line{font-family:var(--f-paint);font-size:17px;letter-spacing:.04em;background:transparent;color:var(--bl-wine);border:2px solid var(--bl-wine);border-radius:6px;padding:7px 16px;cursor:pointer}
 
-.s-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:0;min-height:0}
+.s-hero{display:grid;grid-template-columns:1.05fr .95fr;position:relative;overflow:hidden}
 @media (max-width:760px){.s-hero{grid-template-columns:1fr}}
-.s-hero .copy{padding:48px 28px 44px;display:grid;gap:18px;align-content:center}
-.chicha-tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bl-green)}
-.s-hero h3{font-family:var(--f-chicha-shade);font-weight:400;font-size:clamp(34px,5.4vw,64px);line-height:.95;color:var(--bl-yellow);letter-spacing:.01em}
-.s-hero h3 em{font-style:normal;color:var(--bl-pink);display:block}
-.s-hero p{color:var(--bl-dim);max-width:42ch;font-size:16px}
-.cta-row{display:flex;gap:10px;flex-wrap:wrap}
-.hero-photo{position:relative;min-height:320px;background:
-  radial-gradient(circle at 40% 45%, #f6efe0 0 17%, transparent 17.5%),
-  radial-gradient(circle at 40% 45%, #ff7a2f 0 21%, transparent 21.5%),
-  radial-gradient(circle at 46% 40%, #39e07a 0 3%, transparent 3.4%),
-  radial-gradient(circle at 35% 50%, #ff3d8b 0 2.4%, transparent 2.8%),
-  radial-gradient(circle at 44% 52%, #ffd23f 0 2.6%, transparent 3%),
-  radial-gradient(circle at 40% 45%, #2a2436 0 30%, transparent 30.5%),
-  linear-gradient(135deg,#3b2150,#1c1826 60%)}
-.ph-label{position:absolute;left:14px;bottom:14px;font-family:var(--f-mono);font-size:11px;color:var(--bl-dim);background:rgba(18,16,24,.75);padding:4px 8px;border-radius:4px}
-.marquee{overflow:hidden;background:var(--bl-yellow);color:var(--bl-night);font-family:var(--f-chicha);font-size:15px;white-space:nowrap;padding:9px 0}
-.marquee div{display:inline-block;padding-left:100%;animation:mq 26s linear infinite}
-@media (prefers-reduced-motion: reduce){.marquee div{animation:none;padding-left:28px}}
-@keyframes mq{to{transform:translateX(-100%)}}
+.splash{background:
+  radial-gradient(ellipse 38% 30% at 62% 52%, rgba(243,140,40,.85), transparent 70%),
+  radial-gradient(ellipse 30% 26% at 78% 40%, rgba(247,170,60,.75), transparent 70%),
+  radial-gradient(ellipse 26% 22% at 50% 66%, rgba(238,110,40,.55), transparent 70%),
+  radial-gradient(ellipse 20% 14% at 86% 70%, rgba(250,196,90,.6), transparent 70%),
+  radial-gradient(circle at 92% 22%, rgba(240,120,40,.8) 0 5px, transparent 6px),
+  radial-gradient(circle at 40% 82%, rgba(240,120,40,.7) 0 4px, transparent 5px),
+  radial-gradient(circle at 96% 58%, rgba(240,120,40,.6) 0 3px, transparent 4px)}
+.s-hero .copy{padding:44px 28px 40px;display:grid;gap:14px;align-content:center;position:relative;z-index:1}
+.script{font-family:var(--f-script);color:var(--bl-orange-d);font-size:24px;line-height:1}
+.s-hero h3{font-family:var(--f-slab);font-weight:400;font-size:clamp(28px,4vw,46px);line-height:1.02;color:var(--bl-wine)}
+.paint{font-family:var(--f-paint);font-weight:900;letter-spacing:.01em;display:inline-block;line-height:.9;white-space:nowrap}
+.paint span{display:inline-block;transform:rotate(var(--r,0deg));text-shadow:2px 2px 0 rgba(110,31,43,.18)}
+.s-hero .paint{font-size:clamp(52px,8vw,96px)}
+.c1{color:var(--bl-pink)}.c2{color:var(--bl-red)}.c3{color:var(--bl-purple)}.c4{color:var(--bl-magenta)}.c5{color:var(--bl-teal)}.c6{color:var(--bl-orange)}.c7{color:var(--bl-green)}
+.s-hero p{color:var(--bl-ink2);max-width:42ch;font-size:16px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.hero-art{position:relative;min-height:340px;display:grid;place-items:center;padding:24px}
+.sun{position:absolute;width:300px;height:300px;max-width:90%;aspect-ratio:1;border-radius:50%;background:repeating-conic-gradient(var(--bl-gold) 0 6deg, transparent 6deg 15deg);-webkit-mask:radial-gradient(circle,transparent 0 46%,#000 46.5% 70%,transparent 70.5%);mask:radial-gradient(circle,transparent 0 46%,#000 46.5% 70%,transparent 70.5%);opacity:.85}
+.plate{position:relative;width:220px;max-width:70%;aspect-ratio:1;border-radius:50%;background:
+  radial-gradient(circle at 44% 42%, #fff8ea 0 13%, transparent 13.5%),
+  radial-gradient(circle at 58% 56%, #f6c66a 0 10%, transparent 10.5%),
+  radial-gradient(circle at 40% 60%, #8dc63f 0 5%, transparent 5.5%),
+  radial-gradient(circle at 62% 38%, #e8407c 0 4%, transparent 4.5%),
+  radial-gradient(circle at 52% 50%, #f9efe0 0 42%, transparent 42.5%),
+  radial-gradient(circle, #ffffff 0 58%, #eadfd2 58.5% 62%, #ffffff 62.5%);box-shadow:0 18px 30px -12px rgba(110,31,43,.45)}
+.ph-label{position:absolute;right:14px;bottom:12px;font-family:var(--f-mono);font-size:11px;color:var(--bl-ink2);background:rgba(255,255,255,.85);padding:3px 8px;border-radius:4px}
+
+.ribbon{background:var(--bl-wine);color:var(--bl-paper);display:flex;gap:28px;justify-content:center;flex-wrap:wrap;padding:12px 20px;font-family:var(--f-paint);font-size:18px;letter-spacing:.06em}
+.ribbon b{color:var(--bl-gold);font-weight:400}
 
 .s-block{padding:44px 28px;display:grid;gap:22px}
-.s-block h4{font-family:var(--f-chicha);font-weight:400;font-size:26px;color:var(--bl-cream);margin:0}
-.s-block .sub{color:var(--bl-dim);font-size:14px;max-width:56ch}
+.s-head{display:grid;gap:4px;justify-items:start}
+.s-head h4{font-family:var(--f-slab);font-weight:400;font-size:30px;color:var(--bl-wine);margin:0;line-height:1}
+.s-head .script{font-size:20px}
+.s-block .sub{color:var(--bl-ink2);font-size:14px;max-width:56ch}
 .menu-tabs{display:flex;gap:8px;flex-wrap:wrap}
-.menu-tabs button{font-family:var(--f-body);font-weight:600;font-size:13px;border-radius:999px;padding:6px 14px;border:1px solid #3a3348;background:transparent;color:var(--bl-dim);cursor:pointer}
-.menu-tabs button[aria-selected="true"]{background:var(--bl-green);border-color:var(--bl-green);color:var(--bl-night)}
-.dishes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.menu-tabs button{font-family:var(--f-paint);font-size:17px;letter-spacing:.03em;border-radius:6px;padding:6px 16px;border:2px solid var(--tab);background:transparent;color:var(--tab);cursor:pointer}
+.menu-tabs button[aria-selected="true"]{background:var(--tab);color:#fff}
+.dishes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 @media (max-width:760px){.dishes{grid-template-columns:minmax(0,1fr)}}
-.dish{background:var(--bl-night2);border-radius:8px;overflow:hidden;display:grid}
+.dish{background:#fff;border:1px solid var(--bl-line);border-radius:10px;overflow:hidden;display:grid}
 .dish .img{aspect-ratio:4/3;max-width:100%;position:relative}
 .dish .body{padding:14px 16px 16px;display:grid;gap:6px}
-.dish b{font-family:var(--f-body);font-size:16px;color:var(--bl-cream)}
-.dish small{color:var(--bl-dim);font-size:13px;line-height:1.45}
-.dish .pill{justify-self:start;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:#2e2840;color:var(--bl-yellow)}
-.img.a{background:repeating-linear-gradient(45deg,#ff7a2f22 0 10px,transparent 10px 20px),linear-gradient(160deg,#3a2350,#1c1826)}
-.img.b{background:repeating-linear-gradient(-45deg,#39e07a22 0 10px,transparent 10px 20px),linear-gradient(160deg,#20334a,#1c1826)}
-.img.c{background:repeating-linear-gradient(45deg,#ff3d8b22 0 10px,transparent 10px 20px),linear-gradient(160deg,#4a2330,#1c1826)}
+.dish b{font-family:var(--f-slab);font-weight:400;font-size:18px;color:var(--bl-wine)}
+.dish small{color:var(--bl-ink2);font-size:13px;line-height:1.45}
+.dish .pill{justify-self:start;font-family:var(--f-paint);font-size:14px;letter-spacing:.04em;padding:1px 9px;border-radius:4px;color:#fff;background:var(--tab)}
+.img.a{background:radial-gradient(circle at 50% 55%, #fff8ea 0 22%, transparent 22.5%),radial-gradient(circle at 50% 55%, #f39a2b 0 34%, transparent 34.5%),linear-gradient(160deg,#fbe3c6,#f6c27e)}
+.img.b{background:radial-gradient(circle at 50% 55%, #f9efe0 0 22%, transparent 22.5%),radial-gradient(circle at 50% 55%, #6e1f2b 0 34%, transparent 34.5%),linear-gradient(160deg,#f3d6d0,#e7aab0)}
+.img.c{background:radial-gradient(circle at 50% 55%, #fff 0 22%, transparent 22.5%),radial-gradient(circle at 50% 55%, #22a9b8 0 34%, transparent 34.5%),linear-gradient(160deg,#d3eef0,#9fd8de)}
 
-.s-split{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #2a2436}
+.s-split{display:grid;grid-template-columns:1fr 1fr;background:var(--bl-wine);color:var(--bl-paper)}
 @media (max-width:760px){.s-split{grid-template-columns:1fr}}
 .s-split > div{padding:40px 28px;display:grid;gap:14px;align-content:start}
-.s-split > div + div{border-left:1px solid #2a2436}
-@media (max-width:760px){.s-split > div + div{border-left:0;border-top:1px solid #2a2436}}
+.s-split > div + div{border-left:1px solid rgba(255,250,243,.18)}
+@media (max-width:760px){.s-split > div + div{border-left:0;border-top:1px solid rgba(255,250,243,.18)}}
+.s-split h4{font-family:var(--f-slab);font-weight:400;font-size:30px;margin:0;color:var(--bl-paper);line-height:1}
+.s-split .script{color:var(--bl-gold);font-size:20px}
+.s-split .sub{color:rgba(255,250,243,.8);font-size:14px}
 .res-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.res-form label{display:grid;gap:4px;font-size:12px;color:var(--bl-dim)}
-.res-form input,.res-form select{font:inherit;font-size:14px;background:var(--bl-night2);color:var(--bl-text);border:1px solid #3a3348;border-radius:6px;padding:9px 10px;color-scheme:dark;width:100%}
+.res-form label{display:grid;gap:4px;font-size:12px;color:rgba(255,250,243,.8)}
+.res-form input,.res-form select{font:inherit;font-size:14px;background:var(--bl-paper);color:var(--bl-ink);border:0;border-radius:6px;padding:9px 10px;width:100%;color-scheme:light}
 .res-form .full{grid-column:1/-1}
-.res-msg{font-size:13px;color:var(--bl-green)}
-.info-list{display:grid;gap:10px;font-size:14px}
+.res-form .btn-bl{box-shadow:3px 3px 0 var(--bl-gold)}
+.res-msg{font-size:13px;color:var(--bl-gold)}
+.info-list{display:grid;gap:10px;font-size:14px;margin:0}
 .info-list div{display:grid;grid-template-columns:96px 1fr;gap:10px}
-.info-list dt,.info-list span:first-child{color:var(--bl-dim)}
+.info-list span:first-child{color:rgba(255,250,243,.7)}
 .mapbox{height:140px;border-radius:8px;background:
-  linear-gradient(90deg,transparent 48%,#3a3348 48% 52%,transparent 52%),
-  linear-gradient(0deg,transparent 30%,#3a3348 30% 33%,transparent 33%),
-  linear-gradient(20deg,transparent 60%,#2e2840 60% 63%,transparent 63%),#1c1826;position:relative}
+  linear-gradient(90deg,transparent 48%,#e5d6c4 48% 52%,transparent 52%),
+  linear-gradient(0deg,transparent 30%,#e5d6c4 30% 33%,transparent 33%),
+  linear-gradient(20deg,transparent 60%,#efe3d4 60% 63%,transparent 63%),#fbf3e8;position:relative}
 .mapbox::after{content:"";position:absolute;left:calc(50% - 9px);top:calc(31% - 22px);width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--bl-pink)}
 .ig-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
 @media (max-width:760px){.ig-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.ig-grid i{aspect-ratio:1;display:block;border-radius:4px}
-.s-foot{padding:22px 28px;border-top:1px solid #2a2436;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;font-size:12px;color:var(--bl-dim)}
+.ig-grid i{aspect-ratio:1;display:block;border-radius:6px}
+.s-foot{padding:20px 28px;background:var(--bl-ink);color:rgba(255,250,243,.75);display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center;font-size:12px}
+.s-foot .script{color:var(--bl-gold);font-size:20px}
 
 /* Teléfono */
-.phone{width:300px;max-width:100%;border-radius:38px;padding:10px;background:#0b0a0f;box-shadow:0 18px 40px -20px rgba(20,10,40,.6)}
-.phone .screen{border-radius:30px;overflow:hidden;background:var(--bl-night);color:var(--bl-text);height:600px;position:relative;display:grid;grid-template-rows:auto 1fr auto}
-.phone .notch{height:28px;display:flex;justify-content:center;align-items:center}
-.phone .notch i{width:90px;height:20px;border-radius:12px;background:#0b0a0f;display:block}
+.phone{width:300px;max-width:100%;border-radius:38px;padding:10px;background:#1a1012;box-shadow:0 18px 40px -20px rgba(60,20,20,.6)}
+.phone .screen{border-radius:30px;overflow:hidden;background:var(--bl-paper);color:var(--bl-ink);height:600px;position:relative;display:grid;grid-template-rows:auto 1fr auto}
+.phone .notch{height:28px;display:flex;justify-content:center;align-items:center;background:var(--bl-wine)}
+.phone .notch i{width:90px;height:20px;border-radius:12px;background:#1a1012;display:block}
 .m-scroll{overflow:hidden;display:grid;align-content:start}
-.m-top{display:flex;justify-content:space-between;align-items:center;padding:8px 16px}
-.m-top .logo{font-size:17px}
-.burger{width:22px;display:grid;gap:4px}.burger i{height:2px;background:var(--bl-text);display:block}
-.m-hero{padding:18px 16px;display:grid;gap:10px}
-.m-hero h3{font-family:var(--f-chicha-shade);font-weight:400;font-size:34px;line-height:.95;color:var(--bl-yellow)}
-.m-hero h3 em{font-style:normal;color:var(--bl-pink);display:block}
-.m-hero p{font-size:13px;color:var(--bl-dim)}
-.m-photo{height:150px;margin:0 16px;border-radius:10px;background:
-  radial-gradient(circle at 50% 50%, #f6efe0 0 20%, transparent 20.5%),
-  radial-gradient(circle at 50% 50%, #ff7a2f 0 25%, transparent 25.5%),
-  radial-gradient(circle at 56% 44%, #39e07a 0 4%, transparent 4.4%),
-  linear-gradient(135deg,#3b2150,#1c1826 60%)}
-.m-cards{display:flex;gap:10px;padding:16px;overflow:hidden}
-.m-cards div{flex:0 0 120px;background:var(--bl-night2);border-radius:8px;padding:10px;font-size:12px;display:grid;gap:4px}
-.m-cards b{color:var(--bl-cream);font-size:13px}
-.m-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px 16px;background:var(--bl-night2);border-top:1px solid #2a2436}
-.m-bar span{text-align:center;font-family:var(--f-chicha);font-size:12px;padding:10px 0;border-radius:6px}
-.m-bar .wa{background:var(--bl-green);color:var(--bl-night)}
-.m-bar .rs{background:var(--bl-pink);color:var(--bl-night)}
+.m-top{display:flex;justify-content:space-between;align-items:center;padding:6px 14px}
+.m-top img{height:46px;width:auto}
+.burger{width:22px;display:grid;gap:4px}.burger i{height:2px;background:var(--bl-wine);display:block}
+.m-hero{padding:16px 16px 10px;display:grid;gap:6px;position:relative}
+.m-hero .script{font-size:18px}
+.m-hero h3{font-family:var(--f-slab);font-weight:400;font-size:22px;line-height:1.05;color:var(--bl-wine)}
+.m-hero .paint{font-size:54px}
+.m-hero p{font-size:13px;color:var(--bl-ink2)}
+.m-art{position:relative;height:170px;display:grid;place-items:center}
+.m-art .sun{width:170px;height:170px}
+.m-art .plate{width:120px}
+.m-cards{display:flex;gap:10px;padding:8px 16px 14px;overflow:hidden}
+.m-cards div{flex:0 0 124px;background:#fff;border:1px solid var(--bl-line);border-radius:8px;padding:10px;font-size:12px;display:grid;gap:4px;color:var(--bl-ink2)}
+.m-cards b{font-family:var(--f-slab);font-weight:400;color:var(--bl-wine);font-size:14px}
+.m-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px 16px;background:var(--bl-paper);border-top:1px solid var(--bl-line)}
+.m-bar span{text-align:center;font-family:var(--f-paint);font-size:17px;letter-spacing:.04em;padding:8px 0;border-radius:6px;color:#fff}
+.m-bar .wa{background:var(--bl-green)}
+.m-bar .rs{background:var(--bl-pink)}
 .caption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
 
 .annot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
@@ -169,6 +193,14 @@ section.part{padding-block:44px 8px;display:grid;gap:22px;scroll-margin-top:60px
 .annot div{display:grid;gap:4px;padding-top:12px;border-top:2px solid var(--accent)}
 .annot b{font-family:var(--f-display);font-size:15px}
 .annot span{font-size:14px;color:var(--muted)}
+.brandrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px}
+@media (max-width:640px){.brandrow{grid-template-columns:minmax(0,1fr)}}
+.brandrow img{width:150px;height:auto;border-radius:8px;background:#fff}
+.swatches{display:flex;flex-wrap:wrap;gap:12px}
+.sw{display:grid;gap:4px;font-size:12px;color:var(--muted);justify-items:center;width:64px}
+.sw i{width:40px;height:40px;border-radius:50%;display:block;border:1px solid var(--line)}
+.brandrow h3{font-size:16px;margin-bottom:10px}
+.brandrow p{font-size:14px;color:var(--muted);margin-top:10px;max-width:70ch}
 
 /* ---------- PROPUESTA ---------- */
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
@@ -243,7 +275,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
     <span class="eyebrow">Propuesta para @barriolima.restaurante · Octubre 2026</span>
     <h1>Un sitio web que llene mesas, no solo que se vea bien.</h1>
     <p>Hoy Barrio Lima vive en Instagram. Eso funciona para enamorar, pero deja fuera a quien busca "comida peruana cerca" en Google, a quien quiere ver la carta antes de ir y a quien quiere reservar sin esperar respuesta por DM. Este documento propone el sitio, lo que cuesta hacerlo y por qué cuesta eso.</p>
-    <p class="note">Nota: el perfil de Instagram no es accesible de forma pública para revisión automatizada, así que logotipo, platos, dirección y horarios del mockup son referenciales. En la versión final se reemplazan por la marca, fotos y datos reales del local.</p>
+    <p class="note">El mockup usa el logo oficial y su paleta. Platos, dirección, horarios y fotos son referenciales y se reemplazan por los reales del local en la versión final.</p>
   </header>
 
   <!-- ================= 1. MOCKUP ================= -->
@@ -251,7 +283,25 @@ h3.tbl-title{font-size:19px;margin-top:10px}
     <div class="parthead">
       <span class="step">Parte 1 de 3</span>
       <h2>Mockup del sitio</h2>
-      <p>Dirección visual: el cartel chicha de Lima. Letras fluorescentes sobre fondo noche, como los afiches pintados que anuncian conciertos en los barrios. Le da al sitio una identidad limeña inmediata y hace que la comida, con sus colores de ají, rocoto y limón, salte de la pantalla.</p>
+      <p>El sitio sigue la misma línea gráfica del logo y del Instagram: fondo blanco, letras de colores pintadas a mano, vino para los títulos, una mancha de acuarela naranja, el sol inca dorado y la greca andina como separador. Quien llegue desde Instagram reconoce la marca al instante.</p>
+    </div>
+
+    <div class="brandrow">
+      <img src="logo.webp" alt="Logo Restaurante Barrio Lima, Cocina Peruana Fusión">
+      <div>
+        <h3>Paleta tomada del logo</h3>
+        <div class="swatches">
+          <div class="sw"><i style="background:#e8407c"></i>Rosa</div>
+          <div class="sw"><i style="background:#e8523f"></i>Coral</div>
+          <div class="sw"><i style="background:#7a3c9a"></i>Morado</div>
+          <div class="sw"><i style="background:#22a9b8"></i>Turquesa</div>
+          <div class="sw"><i style="background:#f39a2b"></i>Naranja</div>
+          <div class="sw"><i style="background:#8dc63f"></i>Verde</div>
+          <div class="sw"><i style="background:#6e1f2b"></i>Vino</div>
+          <div class="sw"><i style="background:#d9a326"></i>Sol</div>
+        </div>
+        <p>Los colores alegres se usan para acentos y llamados a la acción. El vino da peso a títulos y secciones clave, y el blanco deja respirar la comida. La letra manuscrita repite el "Cocina Peruana Fusión" del logo.</p>
+      </div>
     </div>
 
     <div class="mock-grid">
@@ -259,42 +309,52 @@ h3.tbl-title{font-size:19px;margin-top:10px}
         <div class="browser">
           <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">barriolima.com</div></div>
           <div class="site">
+            <div class="topstrip"><span>Mar a Dom · 12:30 a 23:30</span><span>Reservas y pedidos por WhatsApp</span></div>
             <div class="s-nav">
-              <div class="logo">BARRIO<span>LIMA</span></div>
+              <img src="logo.webp" alt="Barrio Lima">
               <nav><span>Carta</span><span>Nosotros</span><span>Eventos</span><span>Ubicación</span></nav>
-              <a class="btn-chicha" href="#reserva">RESERVAR</a>
+              <a class="btn-bl" href="#reserva">RESERVAR</a>
             </div>
+            <div class="greca"></div>
 
-            <div class="s-hero">
+            <div class="s-hero splash">
               <div class="copy">
-                <span class="chicha-tag">Cocina peruana de barrio</span>
-                <h3>SABOR DE<em>BARRIO</em></h3>
-                <p>Ceviche recién cortado, wok al fuego y pisco sour bien batido. La Lima de siempre, a la vuelta de la esquina.</p>
+                <span class="script">Cocina Peruana Fusión</span>
+                <h3>Sabores de Lima que se viven en el</h3>
+                <div class="paint" aria-label="Barrio"><span class="c1" style="--r:-3deg">B</span><span class="c2" style="--r:2deg">A</span><span class="c3" style="--r:-2deg">R</span><span class="c4" style="--r:3deg">R</span><span class="c5" style="--r:-1deg">I</span><span class="c6" style="--r:2deg">O</span></div>
+                <p>Ceviche recién cortado, saltados al wok y pisco sour bien batido. Cocina peruana con toques de fusión y ambiente de barrio.</p>
                 <div class="cta-row">
-                  <a class="btn-chicha" href="#reserva">RESERVA TU MESA</a>
-                  <button class="btn-ghost" type="button">VER CARTA</button>
+                  <a class="btn-bl" href="#reserva">RESERVA TU MESA</a>
+                  <button class="btn-line" type="button">VER LA CARTA</button>
                 </div>
               </div>
-              <div class="hero-photo" role="img" aria-label="Espacio para foto principal: ceviche visto desde arriba"><span class="ph-label">FOTO: ceviche cenital (sesión profesional)</span></div>
+              <div class="hero-art">
+                <div class="sun" aria-hidden="true"></div>
+                <div class="plate" role="img" aria-label="Espacio para foto del plato estrella"></div>
+                <span class="ph-label">FOTO: plato estrella (sesión profesional)</span>
+              </div>
             </div>
 
-            <div class="marquee" aria-hidden="true"><div>CEVICHE ★ LOMO SALTADO ★ CAUSA LIMEÑA ★ PISCO SOUR ★ ANTICUCHOS ★ CHAUFA ★ AJÍ DE GALLINA ★ CHICHA MORADA ★ SUSPIRO A LA LIMEÑA ★</div></div>
+            <div class="ribbon" aria-hidden="true"><span>CEVICHE</span><b>✹</b><span>LOMO SALTADO</span><b>✹</b><span>CAUSA</span><b>✹</b><span>PISCO SOUR</span><b>✹</b><span>CHAUFA</span></div>
 
             <div class="s-block">
-              <div style="display:grid;gap:6px">
-                <h4>LA CARTA</h4>
+              <div class="s-head">
+                <span class="script">Nuestra</span>
+                <h4>CARTA</h4>
                 <p class="sub">Carta administrable desde el celular: el restaurante cambia platos, precios y fotos sin depender de nadie.</p>
               </div>
               <div class="menu-tabs" role="tablist" id="menuTabs">
-                <button type="button" role="tab" aria-selected="true" data-cat="mar">Del mar</button>
-                <button type="button" role="tab" aria-selected="false" data-cat="fuego">Al fuego y wok</button>
-                <button type="button" role="tab" aria-selected="false" data-cat="barra">Barra</button>
+                <button type="button" role="tab" aria-selected="true" data-cat="mar" style="--tab:var(--bl-teal)">DEL MAR</button>
+                <button type="button" role="tab" aria-selected="false" data-cat="fuego" style="--tab:var(--bl-orange-d)">WOK Y BRASA</button>
+                <button type="button" role="tab" aria-selected="false" data-cat="barra" style="--tab:var(--bl-purple)">BARRA Y POSTRES</button>
               </div>
-              <div class="dishes" id="dishes"></div>
+              <div class="dishes" id="dishes" style="--tab:var(--bl-teal)"></div>
             </div>
 
+            <div class="greca gold" style="background-color:var(--bl-wine)"></div>
             <div class="s-split" id="reserva">
               <div>
+                <span class="script">Te esperamos</span>
                 <h4>RESERVA</h4>
                 <p class="sub">Confirmación inmediata por correo y WhatsApp. Sin esperar respuesta por DM.</p>
                 <form class="res-form" id="resForm">
@@ -302,13 +362,14 @@ h3.tbl-title{font-size:19px;margin-top:10px}
                   <label>Hora<select id="r-time"><option>13:00</option><option>13:30</option><option selected>20:30</option><option>21:00</option></select></label>
                   <label>Personas<select id="r-pax"><option>2</option><option selected>4</option><option>6</option><option>8+</option></select></label>
                   <label>Nombre<input id="r-name" type="text" value="Camila Rojas"></label>
-                  <div class="full"><button class="btn-chicha" type="submit">CONFIRMAR RESERVA</button></div>
-                  <p class="res-msg full" id="resMsg" hidden>Ejemplo de confirmación: mesa para 4, viernes 17 a las 20:30.</p>
+                  <div class="full"><button class="btn-bl" type="submit">CONFIRMAR RESERVA</button></div>
+                  <p class="res-msg full" id="resMsg" hidden>Ejemplo de confirmación.</p>
                 </form>
               </div>
               <div>
+                <span class="script">Visítanos</span>
                 <h4>EL BARRIO</h4>
-                <dl class="info-list" style="margin:0">
+                <dl class="info-list">
                   <div><span>Dirección</span><span>Av. Ejemplo 1234 (referencial)</span></div>
                   <div><span>Horario</span><span>Mar a Dom · 12:30 a 16:00 y 19:30 a 23:30</span></div>
                   <div><span>Pedidos</span><span>Retiro en local y delivery propio</span></div>
@@ -317,25 +378,26 @@ h3.tbl-title{font-size:19px;margin-top:10px}
               </div>
             </div>
 
-            <div class="s-block" style="border-top:1px solid #2a2436">
+            <div class="s-block">
               <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
-                <h4>@BARRIOLIMA.RESTAURANTE</h4>
+                <div class="s-head"><span class="script">Síguenos</span><h4>@BARRIOLIMA</h4></div>
                 <span class="sub">Feed de Instagram conectado: se actualiza solo</span>
               </div>
               <div class="ig-grid" aria-hidden="true">
-                <i style="background:linear-gradient(135deg,#ff7a2f,#3b2150)"></i>
-                <i style="background:linear-gradient(135deg,#39e07a,#1c1826)"></i>
-                <i style="background:linear-gradient(135deg,#ffd23f,#4a2330)"></i>
-                <i style="background:linear-gradient(135deg,#ff3d8b,#20334a)"></i>
-                <i style="background:linear-gradient(135deg,#6b2d8f,#ff7a2f)"></i>
-                <i style="background:linear-gradient(135deg,#fbf6ee,#3a2350)"></i>
+                <i style="background:linear-gradient(135deg,#e8407c,#f39a2b)"></i>
+                <i style="background:linear-gradient(135deg,#22a9b8,#8dc63f)"></i>
+                <i style="background:linear-gradient(135deg,#7a3c9a,#e8407c)"></i>
+                <i style="background:linear-gradient(135deg,#f39a2b,#d9a326)"></i>
+                <i style="background:linear-gradient(135deg,#6e1f2b,#e8523f)"></i>
+                <i style="background:linear-gradient(135deg,#8dc63f,#22a9b8)"></i>
               </div>
             </div>
 
-            <div class="s-foot"><span>© 2026 Barrio Lima · Cocina peruana</span><span>Instagram · WhatsApp · Google Maps</span></div>
+            <div class="greca"></div>
+            <div class="s-foot"><span class="script">Cocina Peruana Fusión</span><span>© 2026 Restaurante Barrio Lima · Instagram · WhatsApp · Google Maps</span></div>
           </div>
         </div>
-        <p class="caption">Vista escritorio: home de una página larga con carta, reserva, ubicación e Instagram.</p>
+        <p class="caption">Vista escritorio: home con carta, reserva, ubicación e Instagram.</p>
       </div>
 
       <div>
@@ -343,23 +405,26 @@ h3.tbl-title{font-size:19px;margin-top:10px}
           <div class="screen">
             <div class="notch"><i></i></div>
             <div class="m-scroll">
-              <div class="m-top"><div class="logo">BARRIO<span>LIMA</span></div><div class="burger"><i></i><i></i><i></i></div></div>
-              <div class="m-hero">
-                <span class="chicha-tag">Cocina peruana de barrio</span>
-                <h3>SABOR DE<em>BARRIO</em></h3>
-                <p>Ceviche recién cortado, wok al fuego y pisco sour bien batido.</p>
+              <div class="m-top"><img src="logo.webp" alt="Barrio Lima"><div class="burger"><i></i><i></i><i></i></div></div>
+              <div class="greca"></div>
+              <div class="splash">
+                <div class="m-hero">
+                  <span class="script">Cocina Peruana Fusión</span>
+                  <h3>Sabores de Lima que se viven en el</h3>
+                  <div class="paint" aria-label="Barrio"><span class="c1" style="--r:-3deg">B</span><span class="c2" style="--r:2deg">A</span><span class="c3" style="--r:-2deg">R</span><span class="c4" style="--r:3deg">R</span><span class="c5" style="--r:-1deg">I</span><span class="c6" style="--r:2deg">O</span></div>
+                </div>
+                <div class="m-art"><div class="sun" aria-hidden="true"></div><div class="plate" role="img" aria-label="Foto del plato estrella"></div></div>
               </div>
-              <div class="m-photo" role="img" aria-label="Foto principal en móvil"></div>
               <div class="m-cards">
-                <div><b>Ceviche clásico</b><span style="color:var(--bl-dim)">Leche de tigre, camote, choclo</span></div>
-                <div><b>Lomo saltado</b><span style="color:var(--bl-dim)">Al wok, papas fritas, arroz</span></div>
-                <div><b>Pisco sour</b><span style="color:var(--bl-dim)">Quebranta, limón, amargo</span></div>
+                <div><b>Ceviche clásico</b>Leche de tigre, camote, choclo</div>
+                <div><b>Lomo saltado</b>Al wok, papas fritas, arroz</div>
+                <div><b>Pisco sour</b>Quebranta, limón, amargo</div>
               </div>
             </div>
             <div class="m-bar"><span class="wa">WHATSAPP</span><span class="rs">RESERVAR</span></div>
           </div>
         </div>
-        <p class="caption">Vista móvil: 8 de cada 10 visitas llegarán desde el teléfono, por eso los botones de reservar y WhatsApp quedan fijos abajo.</p>
+        <p class="caption">Vista móvil: la mayoría de las visitas llegará desde el teléfono, por eso los botones de reservar y WhatsApp quedan fijos abajo.</p>
       </div>
     </div>
 
@@ -367,7 +432,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
       <div><b>Reserva directa</b><span>Formulario con confirmación automática. Reduce DMs y llamadas en hora punta.</span></div>
       <div><b>Carta viva</b><span>Editable desde el celular. Sin PDFs desactualizados ni fotos borrosas del menú impreso.</span></div>
       <div><b>Aparece en Google</b><span>SEO local, ficha de Google Business y datos estructurados de restaurante y carta.</span></div>
-      <div><b>Instagram conectado</b><span>El feed alimenta el sitio y el sitio devuelve seguidores. Un solo esfuerzo de contenido.</span></div>
+      <div><b>Misma marca que Instagram</b><span>Colores, letras y elementos del logo. El feed alimenta el sitio y el sitio devuelve seguidores.</span></div>
     </div>
   </section>
 
@@ -542,7 +607,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
       </article>
     </div>
 
-    <p class="foot">Valores referenciales en USD, vigentes por 30 días. Los rangos de mercado y el cálculo de retorno son estimaciones para orientar la decisión, no cifras auditadas. Los contenidos del mockup (logo, platos, dirección, horario) son de ejemplo hasta recibir el material oficial de Barrio Lima.</p>
+    <p class="foot">Valores referenciales en USD, vigentes por 30 días. Los rangos de mercado y el cálculo de retorno son estimaciones para orientar la decisión, no cifras auditadas. Los platos, dirección y horarios del mockup son de ejemplo hasta recibir el material oficial de Barrio Lima.</p>
   </section>
 </div>
 
@@ -556,7 +621,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
     ],
     fuego:[
       {n:"Lomo saltado",d:"Lomo al wok con cebolla, tomate y sillao, papas fritas y arroz.",t:"Wok",c:"c"},
-      {n:"Anticuchos",d:"Corazón a la parrilla, papa dorada y ají de huacatay.",t:"Parrilla",c:"a"},
+      {n:"Anticuchos",d:"Corazón a la brasa, papa dorada y ají de huacatay.",t:"Brasa",c:"a"},
       {n:"Arroz chaufa",d:"Arroz salteado al wok, tortilla, cebollín y kion.",t:"Chifa",c:"b"}
     ],
     barra:[
@@ -575,6 +640,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
   document.getElementById("menuTabs").addEventListener("click", function(e){
     var b = e.target.closest("button"); if(!b) return;
     this.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-selected", x===b ? "true" : "false"); });
+    box.style.setProperty("--tab", b.style.getPropertyValue("--tab"));
     render(b.dataset.cat);
   });
   document.getElementById("resForm").addEventListener("submit", function(e){
