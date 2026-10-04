@@ -1,0 +1,587 @@
+<title>Barrio Lima Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Figtree:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: documento de propuesta en una columna ancha; el mockup vive dentro de marcos de navegador y teléfono con su propia identidad "cartel chicha" limeña. */
+:root{
+  /* Documento (tema claro) */
+  --bg:#f3f4f7; --paper:#ffffff; --ink:#191a24; --muted:#5d6072; --line:#dcdee6;
+  --accent:#6b2d8f;      /* chicha morada */
+  --accent-soft:#efe6f5;
+  --good:#1f7a4d;
+  /* Marca del restaurante (mockup, look fijo nocturno) */
+  --bl-night:#121018; --bl-night2:#1c1826; --bl-pink:#ff3d8b; --bl-yellow:#ffd23f;
+  --bl-green:#39e07a; --bl-orange:#ff7a2f; --bl-cream:#fbf6ee; --bl-text:#ece8f2; --bl-dim:#a59fb4;
+  /* Tipos */
+  --f-display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --f-chicha:"Bungee", Impact, "Arial Black", sans-serif;
+  --f-chicha-shade:"Bungee Shade", "Bungee", Impact, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14141b; --paper:#1d1d27; --ink:#ecebf3; --muted:#a3a4b5; --line:#33343f;
+    --accent:#c9a0e6; --accent-soft:#2c2338; --good:#5fd197; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14141b; --paper:#1d1d27; --ink:#ecebf3; --muted:#a3a4b5; --line:#33343f;
+  --accent:#c9a0e6; --accent-soft:#2c2338; --good:#5fd197; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* Navegación del documento */
+.docnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.docnav .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.docnav strong{font-family:var(--f-display);font-size:15px;margin-right:auto}
+.docnav a{text-decoration:none;font-size:14px;color:var(--muted);font-weight:500}
+.docnav a:hover{color:var(--accent)}
+
+.intro{padding-block:48px 28px;display:grid;gap:14px;max-width:760px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.intro h1{font-size:clamp(30px,4.6vw,48px);font-weight:700;letter-spacing:-.02em}
+.intro p{color:var(--muted);font-size:17px;max-width:65ch}
+.note{font-size:14px;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+
+section.part{padding-block:44px 8px;display:grid;gap:22px;scroll-margin-top:60px}
+.parthead{display:grid;gap:8px;max-width:760px}
+.parthead h2{font-size:clamp(24px,3.2vw,34px);letter-spacing:-.015em}
+.parthead p{color:var(--muted);max-width:65ch}
+.step{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+
+/* ---------- MOCKUP ---------- */
+.mock-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start}
+@media (max-width:960px){.mock-grid{grid-template-columns:minmax(0,1fr)}.phone{justify-self:center}}
+.browser{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 18px 40px -22px rgba(20,10,40,.45)}
+.chrome{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--paper);border-bottom:1px solid var(--line)}
+.dots{display:flex;gap:6px}.dots i{width:11px;height:11px;border-radius:50%;background:var(--line);display:block}
+.url{flex:1;min-width:0;font-family:var(--f-mono);font-size:12px;color:var(--muted);background:var(--bg);border-radius:6px;padding:5px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.site{background:var(--bl-night);color:var(--bl-text);font-family:var(--f-body)}
+.s-nav{display:flex;align-items:center;gap:22px;padding:16px 28px;border-bottom:1px solid #2a2436;flex-wrap:wrap}
+.logo{font-family:var(--f-chicha);font-size:22px;line-height:1;letter-spacing:.01em;color:var(--bl-yellow)}
+.logo span{color:var(--bl-pink)}
+.s-nav nav{display:flex;gap:18px;margin-left:auto;font-size:14px;color:var(--bl-dim);flex-wrap:wrap}
+.btn-chicha{font-family:var(--f-chicha);font-size:13px;letter-spacing:.03em;background:var(--bl-pink);color:var(--bl-night);border:0;border-radius:4px;padding:10px 14px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-ghost{font-family:var(--f-chicha);font-size:13px;background:transparent;color:var(--bl-yellow);border:2px solid var(--bl-yellow);border-radius:4px;padding:8px 14px;cursor:pointer}
+
+.s-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:0;min-height:0}
+@media (max-width:760px){.s-hero{grid-template-columns:1fr}}
+.s-hero .copy{padding:48px 28px 44px;display:grid;gap:18px;align-content:center}
+.chicha-tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bl-green)}
+.s-hero h3{font-family:var(--f-chicha-shade);font-weight:400;font-size:clamp(34px,5.4vw,64px);line-height:.95;color:var(--bl-yellow);letter-spacing:.01em}
+.s-hero h3 em{font-style:normal;color:var(--bl-pink);display:block}
+.s-hero p{color:var(--bl-dim);max-width:42ch;font-size:16px}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap}
+.hero-photo{position:relative;min-height:320px;background:
+  radial-gradient(circle at 40% 45%, #f6efe0 0 17%, transparent 17.5%),
+  radial-gradient(circle at 40% 45%, #ff7a2f 0 21%, transparent 21.5%),
+  radial-gradient(circle at 46% 40%, #39e07a 0 3%, transparent 3.4%),
+  radial-gradient(circle at 35% 50%, #ff3d8b 0 2.4%, transparent 2.8%),
+  radial-gradient(circle at 44% 52%, #ffd23f 0 2.6%, transparent 3%),
+  radial-gradient(circle at 40% 45%, #2a2436 0 30%, transparent 30.5%),
+  linear-gradient(135deg,#3b2150,#1c1826 60%)}
+.ph-label{position:absolute;left:14px;bottom:14px;font-family:var(--f-mono);font-size:11px;color:var(--bl-dim);background:rgba(18,16,24,.75);padding:4px 8px;border-radius:4px}
+.marquee{overflow:hidden;background:var(--bl-yellow);color:var(--bl-night);font-family:var(--f-chicha);font-size:15px;white-space:nowrap;padding:9px 0}
+.marquee div{display:inline-block;padding-left:100%;animation:mq 26s linear infinite}
+@media (prefers-reduced-motion: reduce){.marquee div{animation:none;padding-left:28px}}
+@keyframes mq{to{transform:translateX(-100%)}}
+
+.s-block{padding:44px 28px;display:grid;gap:22px}
+.s-block h4{font-family:var(--f-chicha);font-weight:400;font-size:26px;color:var(--bl-cream);margin:0}
+.s-block .sub{color:var(--bl-dim);font-size:14px;max-width:56ch}
+.menu-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.menu-tabs button{font-family:var(--f-body);font-weight:600;font-size:13px;border-radius:999px;padding:6px 14px;border:1px solid #3a3348;background:transparent;color:var(--bl-dim);cursor:pointer}
+.menu-tabs button[aria-selected="true"]{background:var(--bl-green);border-color:var(--bl-green);color:var(--bl-night)}
+.dishes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.dishes{grid-template-columns:minmax(0,1fr)}}
+.dish{background:var(--bl-night2);border-radius:8px;overflow:hidden;display:grid}
+.dish .img{aspect-ratio:4/3;max-width:100%;position:relative}
+.dish .body{padding:14px 16px 16px;display:grid;gap:6px}
+.dish b{font-family:var(--f-body);font-size:16px;color:var(--bl-cream)}
+.dish small{color:var(--bl-dim);font-size:13px;line-height:1.45}
+.dish .pill{justify-self:start;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:#2e2840;color:var(--bl-yellow)}
+.img.a{background:repeating-linear-gradient(45deg,#ff7a2f22 0 10px,transparent 10px 20px),linear-gradient(160deg,#3a2350,#1c1826)}
+.img.b{background:repeating-linear-gradient(-45deg,#39e07a22 0 10px,transparent 10px 20px),linear-gradient(160deg,#20334a,#1c1826)}
+.img.c{background:repeating-linear-gradient(45deg,#ff3d8b22 0 10px,transparent 10px 20px),linear-gradient(160deg,#4a2330,#1c1826)}
+
+.s-split{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #2a2436}
+@media (max-width:760px){.s-split{grid-template-columns:1fr}}
+.s-split > div{padding:40px 28px;display:grid;gap:14px;align-content:start}
+.s-split > div + div{border-left:1px solid #2a2436}
+@media (max-width:760px){.s-split > div + div{border-left:0;border-top:1px solid #2a2436}}
+.res-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.res-form label{display:grid;gap:4px;font-size:12px;color:var(--bl-dim)}
+.res-form input,.res-form select{font:inherit;font-size:14px;background:var(--bl-night2);color:var(--bl-text);border:1px solid #3a3348;border-radius:6px;padding:9px 10px;color-scheme:dark;width:100%}
+.res-form .full{grid-column:1/-1}
+.res-msg{font-size:13px;color:var(--bl-green)}
+.info-list{display:grid;gap:10px;font-size:14px}
+.info-list div{display:grid;grid-template-columns:96px 1fr;gap:10px}
+.info-list dt,.info-list span:first-child{color:var(--bl-dim)}
+.mapbox{height:140px;border-radius:8px;background:
+  linear-gradient(90deg,transparent 48%,#3a3348 48% 52%,transparent 52%),
+  linear-gradient(0deg,transparent 30%,#3a3348 30% 33%,transparent 33%),
+  linear-gradient(20deg,transparent 60%,#2e2840 60% 63%,transparent 63%),#1c1826;position:relative}
+.mapbox::after{content:"";position:absolute;left:calc(50% - 9px);top:calc(31% - 22px);width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--bl-pink)}
+.ig-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+@media (max-width:760px){.ig-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.ig-grid i{aspect-ratio:1;display:block;border-radius:4px}
+.s-foot{padding:22px 28px;border-top:1px solid #2a2436;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;font-size:12px;color:var(--bl-dim)}
+
+/* Teléfono */
+.phone{width:300px;max-width:100%;border-radius:38px;padding:10px;background:#0b0a0f;box-shadow:0 18px 40px -20px rgba(20,10,40,.6)}
+.phone .screen{border-radius:30px;overflow:hidden;background:var(--bl-night);color:var(--bl-text);height:600px;position:relative;display:grid;grid-template-rows:auto 1fr auto}
+.phone .notch{height:28px;display:flex;justify-content:center;align-items:center}
+.phone .notch i{width:90px;height:20px;border-radius:12px;background:#0b0a0f;display:block}
+.m-scroll{overflow:hidden;display:grid;align-content:start}
+.m-top{display:flex;justify-content:space-between;align-items:center;padding:8px 16px}
+.m-top .logo{font-size:17px}
+.burger{width:22px;display:grid;gap:4px}.burger i{height:2px;background:var(--bl-text);display:block}
+.m-hero{padding:18px 16px;display:grid;gap:10px}
+.m-hero h3{font-family:var(--f-chicha-shade);font-weight:400;font-size:34px;line-height:.95;color:var(--bl-yellow)}
+.m-hero h3 em{font-style:normal;color:var(--bl-pink);display:block}
+.m-hero p{font-size:13px;color:var(--bl-dim)}
+.m-photo{height:150px;margin:0 16px;border-radius:10px;background:
+  radial-gradient(circle at 50% 50%, #f6efe0 0 20%, transparent 20.5%),
+  radial-gradient(circle at 50% 50%, #ff7a2f 0 25%, transparent 25.5%),
+  radial-gradient(circle at 56% 44%, #39e07a 0 4%, transparent 4.4%),
+  linear-gradient(135deg,#3b2150,#1c1826 60%)}
+.m-cards{display:flex;gap:10px;padding:16px;overflow:hidden}
+.m-cards div{flex:0 0 120px;background:var(--bl-night2);border-radius:8px;padding:10px;font-size:12px;display:grid;gap:4px}
+.m-cards b{color:var(--bl-cream);font-size:13px}
+.m-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px 16px;background:var(--bl-night2);border-top:1px solid #2a2436}
+.m-bar span{text-align:center;font-family:var(--f-chicha);font-size:12px;padding:10px 0;border-radius:6px}
+.m-bar .wa{background:var(--bl-green);color:var(--bl-night)}
+.m-bar .rs{background:var(--bl-pink);color:var(--bl-night)}
+.caption{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+
+.annot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:900px){.annot{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.annot{grid-template-columns:minmax(0,1fr)}}
+.annot div{display:grid;gap:4px;padding-top:12px;border-top:2px solid var(--accent)}
+.annot b{font-family:var(--f-display);font-size:15px}
+.annot span{font-size:14px;color:var(--muted)}
+
+/* ---------- PROPUESTA ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+@media (max-width:880px){.plans{grid-template-columns:minmax(0,1fr)}}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:14px;align-content:start;position:relative}
+.plan.rec{border:2px solid var(--accent)}
+.rec-badge{position:absolute;top:-11px;left:20px;background:var(--accent);color:var(--paper);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:4px}
+.plan h3{font-size:20px}
+.price{font-family:var(--f-display);font-size:38px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.price small{font-family:var(--f-body);font-size:14px;font-weight:500;color:var(--muted);letter-spacing:0}
+.plan .for{color:var(--muted);font-size:14px}
+.plan ul{margin:0;padding-left:18px;display:grid;gap:5px;font-size:14px}
+.plan .meta{font-family:var(--f-mono);font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+
+.tbl-wrap{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--f-mono);white-space:nowrap}
+td small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+tr.total td{font-weight:700;border-bottom:0;background:var(--accent-soft)}
+h3.tbl-title{font-size:19px;margin-top:10px}
+
+.timeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media (max-width:820px){.timeline{grid-template-columns:minmax(0,1fr)}}
+.timeline div{padding:16px;display:grid;gap:4px;border-right:1px solid var(--line)}
+.timeline div:last-child{border-right:0}
+@media (max-width:820px){.timeline div{border-right:0;border-bottom:1px solid var(--line)}}
+.timeline .wk{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.timeline b{font-family:var(--f-display)}
+.timeline span{font-size:13px;color:var(--muted)}
+
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:820px){.terms{grid-template-columns:minmax(0,1fr)}}
+.terms div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:6px;align-content:start}
+.terms b{font-family:var(--f-display);font-size:16px}
+.terms p,.terms li{font-size:14px;color:var(--muted)}
+.terms ul{margin:0;padding-left:18px;display:grid;gap:4px}
+
+/* ---------- JUSTIFICACIÓN ---------- */
+.just{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:820px){.just{grid-template-columns:minmax(0,1fr)}}
+.just article{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:10px;align-content:start}
+.just h3{font-size:18px}
+.just p,.just li{font-size:15px;color:var(--muted)}
+.just ul{margin:0;padding-left:18px;display:grid;gap:5px}
+.just strong{color:var(--ink)}
+.bars{display:grid;gap:10px;margin-top:4px}
+.bar{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;align-items:center;font-size:13px}
+@media (max-width:480px){.bar{grid-template-columns:minmax(0,1fr)}}
+.bar .track{position:relative;height:22px;background:var(--bg);border-radius:4px}
+.bar .fill{position:absolute;top:0;bottom:0;border-radius:4px;background:color-mix(in srgb,var(--muted) 35%,transparent)}
+.bar .fill.us{background:var(--accent)}
+.bar .val{position:absolute;right:6px;top:2px;font-family:var(--f-mono);font-size:11px;color:var(--ink)}
+.roi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:560px){.roi{grid-template-columns:minmax(0,1fr)}}
+.roi div{background:var(--bg);border-radius:8px;padding:12px;display:grid;gap:2px}
+.roi b{font-family:var(--f-display);font-size:24px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.roi span{font-size:12px;color:var(--muted)}
+.foot{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+
+<div class="docnav"><div class="in">
+  <strong>Barrio Lima · Propuesta web</strong>
+  <a href="#mockup">1. Mockup</a>
+  <a href="#propuesta">2. Propuesta económica</a>
+  <a href="#justificacion">3. Justificación</a>
+</div></div>
+
+<div class="wrap">
+  <header class="intro">
+    <span class="eyebrow">Propuesta para @barriolima.restaurante · Octubre 2026</span>
+    <h1>Un sitio web que llene mesas, no solo que se vea bien.</h1>
+    <p>Hoy Barrio Lima vive en Instagram. Eso funciona para enamorar, pero deja fuera a quien busca "comida peruana cerca" en Google, a quien quiere ver la carta antes de ir y a quien quiere reservar sin esperar respuesta por DM. Este documento propone el sitio, lo que cuesta hacerlo y por qué cuesta eso.</p>
+    <p class="note">Nota: el perfil de Instagram no es accesible de forma pública para revisión automatizada, así que logotipo, platos, dirección y horarios del mockup son referenciales. En la versión final se reemplazan por la marca, fotos y datos reales del local.</p>
+  </header>
+
+  <!-- ================= 1. MOCKUP ================= -->
+  <section class="part" id="mockup">
+    <div class="parthead">
+      <span class="step">Parte 1 de 3</span>
+      <h2>Mockup del sitio</h2>
+      <p>Dirección visual: el cartel chicha de Lima. Letras fluorescentes sobre fondo noche, como los afiches pintados que anuncian conciertos en los barrios. Le da al sitio una identidad limeña inmediata y hace que la comida, con sus colores de ají, rocoto y limón, salte de la pantalla.</p>
+    </div>
+
+    <div class="mock-grid">
+      <div>
+        <div class="browser">
+          <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">barriolima.com</div></div>
+          <div class="site">
+            <div class="s-nav">
+              <div class="logo">BARRIO<span>LIMA</span></div>
+              <nav><span>Carta</span><span>Nosotros</span><span>Eventos</span><span>Ubicación</span></nav>
+              <a class="btn-chicha" href="#reserva">RESERVAR</a>
+            </div>
+
+            <div class="s-hero">
+              <div class="copy">
+                <span class="chicha-tag">Cocina peruana de barrio</span>
+                <h3>SABOR DE<em>BARRIO</em></h3>
+                <p>Ceviche recién cortado, wok al fuego y pisco sour bien batido. La Lima de siempre, a la vuelta de la esquina.</p>
+                <div class="cta-row">
+                  <a class="btn-chicha" href="#reserva">RESERVA TU MESA</a>
+                  <button class="btn-ghost" type="button">VER CARTA</button>
+                </div>
+              </div>
+              <div class="hero-photo" role="img" aria-label="Espacio para foto principal: ceviche visto desde arriba"><span class="ph-label">FOTO: ceviche cenital (sesión profesional)</span></div>
+            </div>
+
+            <div class="marquee" aria-hidden="true"><div>CEVICHE ★ LOMO SALTADO ★ CAUSA LIMEÑA ★ PISCO SOUR ★ ANTICUCHOS ★ CHAUFA ★ AJÍ DE GALLINA ★ CHICHA MORADA ★ SUSPIRO A LA LIMEÑA ★</div></div>
+
+            <div class="s-block">
+              <div style="display:grid;gap:6px">
+                <h4>LA CARTA</h4>
+                <p class="sub">Carta administrable desde el celular: el restaurante cambia platos, precios y fotos sin depender de nadie.</p>
+              </div>
+              <div class="menu-tabs" role="tablist" id="menuTabs">
+                <button type="button" role="tab" aria-selected="true" data-cat="mar">Del mar</button>
+                <button type="button" role="tab" aria-selected="false" data-cat="fuego">Al fuego y wok</button>
+                <button type="button" role="tab" aria-selected="false" data-cat="barra">Barra</button>
+              </div>
+              <div class="dishes" id="dishes"></div>
+            </div>
+
+            <div class="s-split" id="reserva">
+              <div>
+                <h4>RESERVA</h4>
+                <p class="sub">Confirmación inmediata por correo y WhatsApp. Sin esperar respuesta por DM.</p>
+                <form class="res-form" id="resForm">
+                  <label>Fecha<input id="r-date" type="date" value="2026-10-17"></label>
+                  <label>Hora<select id="r-time"><option>13:00</option><option>13:30</option><option selected>20:30</option><option>21:00</option></select></label>
+                  <label>Personas<select id="r-pax"><option>2</option><option selected>4</option><option>6</option><option>8+</option></select></label>
+                  <label>Nombre<input id="r-name" type="text" value="Camila Rojas"></label>
+                  <div class="full"><button class="btn-chicha" type="submit">CONFIRMAR RESERVA</button></div>
+                  <p class="res-msg full" id="resMsg" hidden>Ejemplo de confirmación: mesa para 4, viernes 17 a las 20:30.</p>
+                </form>
+              </div>
+              <div>
+                <h4>EL BARRIO</h4>
+                <dl class="info-list" style="margin:0">
+                  <div><span>Dirección</span><span>Av. Ejemplo 1234 (referencial)</span></div>
+                  <div><span>Horario</span><span>Mar a Dom · 12:30 a 16:00 y 19:30 a 23:30</span></div>
+                  <div><span>Pedidos</span><span>Retiro en local y delivery propio</span></div>
+                </dl>
+                <div class="mapbox" role="img" aria-label="Mapa de ubicación"></div>
+              </div>
+            </div>
+
+            <div class="s-block" style="border-top:1px solid #2a2436">
+              <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
+                <h4>@BARRIOLIMA.RESTAURANTE</h4>
+                <span class="sub">Feed de Instagram conectado: se actualiza solo</span>
+              </div>
+              <div class="ig-grid" aria-hidden="true">
+                <i style="background:linear-gradient(135deg,#ff7a2f,#3b2150)"></i>
+                <i style="background:linear-gradient(135deg,#39e07a,#1c1826)"></i>
+                <i style="background:linear-gradient(135deg,#ffd23f,#4a2330)"></i>
+                <i style="background:linear-gradient(135deg,#ff3d8b,#20334a)"></i>
+                <i style="background:linear-gradient(135deg,#6b2d8f,#ff7a2f)"></i>
+                <i style="background:linear-gradient(135deg,#fbf6ee,#3a2350)"></i>
+              </div>
+            </div>
+
+            <div class="s-foot"><span>© 2026 Barrio Lima · Cocina peruana</span><span>Instagram · WhatsApp · Google Maps</span></div>
+          </div>
+        </div>
+        <p class="caption">Vista escritorio: home de una página larga con carta, reserva, ubicación e Instagram.</p>
+      </div>
+
+      <div>
+        <div class="phone">
+          <div class="screen">
+            <div class="notch"><i></i></div>
+            <div class="m-scroll">
+              <div class="m-top"><div class="logo">BARRIO<span>LIMA</span></div><div class="burger"><i></i><i></i><i></i></div></div>
+              <div class="m-hero">
+                <span class="chicha-tag">Cocina peruana de barrio</span>
+                <h3>SABOR DE<em>BARRIO</em></h3>
+                <p>Ceviche recién cortado, wok al fuego y pisco sour bien batido.</p>
+              </div>
+              <div class="m-photo" role="img" aria-label="Foto principal en móvil"></div>
+              <div class="m-cards">
+                <div><b>Ceviche clásico</b><span style="color:var(--bl-dim)">Leche de tigre, camote, choclo</span></div>
+                <div><b>Lomo saltado</b><span style="color:var(--bl-dim)">Al wok, papas fritas, arroz</span></div>
+                <div><b>Pisco sour</b><span style="color:var(--bl-dim)">Quebranta, limón, amargo</span></div>
+              </div>
+            </div>
+            <div class="m-bar"><span class="wa">WHATSAPP</span><span class="rs">RESERVAR</span></div>
+          </div>
+        </div>
+        <p class="caption">Vista móvil: 8 de cada 10 visitas llegarán desde el teléfono, por eso los botones de reservar y WhatsApp quedan fijos abajo.</p>
+      </div>
+    </div>
+
+    <div class="annot">
+      <div><b>Reserva directa</b><span>Formulario con confirmación automática. Reduce DMs y llamadas en hora punta.</span></div>
+      <div><b>Carta viva</b><span>Editable desde el celular. Sin PDFs desactualizados ni fotos borrosas del menú impreso.</span></div>
+      <div><b>Aparece en Google</b><span>SEO local, ficha de Google Business y datos estructurados de restaurante y carta.</span></div>
+      <div><b>Instagram conectado</b><span>El feed alimenta el sitio y el sitio devuelve seguidores. Un solo esfuerzo de contenido.</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 2. PROPUESTA ================= -->
+  <section class="part" id="propuesta">
+    <div class="parthead">
+      <span class="step">Parte 2 de 3</span>
+      <h2>Propuesta económica</h2>
+      <p>Tres alcances para elegir según la etapa del restaurante. Valores en dólares (USD), pago único por el desarrollo, más impuestos según corresponda. Los costos de operación anual van aparte y se pagan directo al proveedor.</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Esencial</h3>
+        <div class="price">US$ 950 <small>pago único</small></div>
+        <p class="for">Para tener presencia profesional rápido.</p>
+        <ul>
+          <li>Sitio de una página (home)</li>
+          <li>Carta en formato web (no PDF)</li>
+          <li>Botón WhatsApp y llamada</li>
+          <li>Mapa, horarios y redes</li>
+          <li>Diseño adaptado a móvil</li>
+          <li>Ficha Google Business optimizada</li>
+        </ul>
+        <div class="meta">≈ 42 horas · 2 a 3 semanas</div>
+      </div>
+      <div class="plan rec">
+        <span class="rec-badge">Recomendado</span>
+        <h3>Barrio</h3>
+        <div class="price">US$ 2.400 <small>pago único</small></div>
+        <p class="for">El sitio del mockup. Pensado para llenar mesas.</p>
+        <ul>
+          <li>Todo lo de Esencial</li>
+          <li>5 secciones: Home, Carta, Nosotros, Eventos, Contacto</li>
+          <li>Carta administrable (CMS) desde el celular</li>
+          <li>Reservas online con confirmación</li>
+          <li>SEO local y datos estructurados</li>
+          <li>Feed de Instagram integrado</li>
+          <li>Español e inglés</li>
+          <li>Analítica y píxel de Meta</li>
+        </ul>
+        <div class="meta">≈ 108 horas · 5 semanas</div>
+      </div>
+      <div class="plan">
+        <h3>Completo</h3>
+        <div class="price">US$ 4.800 <small>pago único</small></div>
+        <p class="for">Para vender online sin pagar comisión a apps.</p>
+        <ul>
+          <li>Todo lo de Barrio</li>
+          <li>Pedidos online para retiro y delivery propio</li>
+          <li>Pago con tarjeta integrado</li>
+          <li>Gift cards y cupones</li>
+          <li>Integración con caja (POS) si aplica</li>
+          <li>Panel de pedidos para cocina</li>
+        </ul>
+        <div class="meta">≈ 210 horas · 8 semanas</div>
+      </div>
+    </div>
+
+    <h3 class="tbl-title">Detalle de lo que conlleva el plan Barrio</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Etapa</th><th>Qué incluye</th><th class="n">Horas</th><th class="n">Valor</th></tr></thead>
+        <tbody>
+          <tr><td>Descubrimiento</td><td>Reunión con el dueño y el chef, revisión de Instagram y competencia, definición de objetivos<small>Entregable: brief de una página</small></td><td class="n">6</td><td class="n">US$ 132</td></tr>
+          <tr><td>Arquitectura y wireframes</td><td>Mapa del sitio, estructura de cada sección, recorrido de reserva<small>Entregable: wireframes navegables</small></td><td class="n">8</td><td class="n">US$ 176</td></tr>
+          <tr><td>Diseño visual</td><td>Identidad web, diseño de 5 vistas en escritorio y móvil, 2 rondas de ajustes<small>Entregable: diseño en Figma aprobado</small></td><td class="n">20</td><td class="n">US$ 440</td></tr>
+          <tr><td>Desarrollo</td><td>Maquetación responsive, animaciones, optimización de imágenes, velocidad<small>Meta: carga en menos de 2,5 s en 4G</small></td><td class="n">24</td><td class="n">US$ 528</td></tr>
+          <tr><td>Carta administrable</td><td>Gestor de contenidos para platos, categorías, precios, fotos y alérgenos</td><td class="n">10</td><td class="n">US$ 220</td></tr>
+          <tr><td>Reservas online</td><td>Formulario, reglas de capacidad y horarios, aviso por correo y WhatsApp</td><td class="n">6</td><td class="n">US$ 132</td></tr>
+          <tr><td>Textos y traducción</td><td>Redacción de todo el sitio en español y versión en inglés para turistas</td><td class="n">8</td><td class="n">US$ 176</td></tr>
+          <tr><td>SEO local</td><td>Google Business Profile, datos estructurados Restaurant y Menu, sitemap, Search Console</td><td class="n">6</td><td class="n">US$ 132</td></tr>
+          <tr><td>Integraciones</td><td>Feed de Instagram, Google Analytics 4, píxel de Meta, botón WhatsApp</td><td class="n">4</td><td class="n">US$ 88</td></tr>
+          <tr><td>Pruebas y puesta en línea</td><td>Pruebas en iPhone, Android y escritorio, accesibilidad básica, dominio y SSL</td><td class="n">6</td><td class="n">US$ 132</td></tr>
+          <tr><td>Capacitación</td><td>Sesión para enseñar a editar la carta y ver reservas, más video tutorial</td><td class="n">3</td><td class="n">US$ 66</td></tr>
+          <tr><td>Gestión del proyecto</td><td>Coordinación, reuniones de avance semanales, control de calidad</td><td class="n">7</td><td class="n">US$ 154</td></tr>
+          <tr class="total"><td>Total</td><td>Tarifa combinada de US$ 22 por hora</td><td class="n">108</td><td class="n">US$ 2.376 → 2.400</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="tbl-title">Costos de operación (pagados directo al proveedor)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Concepto</th><th>Detalle</th><th class="n">Mensual</th><th class="n">Anual</th></tr></thead>
+        <tbody>
+          <tr><td>Dominio</td><td>barriolima.com (o dominio local .pe / .cl)</td><td class="n">—</td><td class="n">US$ 15 a 50</td></tr>
+          <tr><td>Hosting administrado</td><td>Servidor rápido, SSL incluido, copias de seguridad diarias</td><td class="n">US$ 15</td><td class="n">US$ 180</td></tr>
+          <tr><td>Correo profesional (opcional)</td><td>reservas@barriolima.com con Google Workspace, por usuario</td><td class="n">US$ 7</td><td class="n">US$ 84</td></tr>
+          <tr><td>Mantención (opcional)</td><td>Actualizaciones, seguridad, monitoreo y hasta 2 horas de cambios al mes</td><td class="n">US$ 60</td><td class="n">US$ 720</td></tr>
+          <tr class="total"><td>Total mínimo</td><td>Dominio + hosting</td><td class="n">≈ US$ 16</td><td class="n">≈ US$ 195</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="tbl-title">Calendario del plan Barrio</h3>
+    <div class="timeline">
+      <div><span class="wk">Semana 1</span><b>Descubrimiento</b><span>Brief, estructura y wireframes</span></div>
+      <div><span class="wk">Semana 2</span><b>Diseño</b><span>Propuesta visual y ajustes</span></div>
+      <div><span class="wk">Semana 3</span><b>Desarrollo</b><span>Maquetación y carta administrable</span></div>
+      <div><span class="wk">Semana 4</span><b>Integraciones</b><span>Reservas, SEO, Instagram, textos</span></div>
+      <div><span class="wk">Semana 5</span><b>Lanzamiento</b><span>Pruebas, capacitación, sitio en línea</span></div>
+    </div>
+
+    <div class="terms">
+      <div><b>Forma de pago</b><ul><li>50% al iniciar</li><li>30% al aprobar el diseño</li><li>20% contra entrega</li></ul></div>
+      <div><b>Qué necesitamos del restaurante</b><ul><li>Logo en alta calidad</li><li>Carta actualizada con precios</li><li>Acceso a Instagram y Google Business</li><li>Un contacto que apruebe en 48 h</li></ul></div>
+      <div><b>Adicionales</b><ul><li>Sesión de fotos de platos (25 fotos editadas): US$ 350</li><li>Página extra: US$ 180</li><li>Ronda de diseño adicional: US$ 150</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ================= 3. JUSTIFICACIÓN ================= -->
+  <section class="part" id="justificacion">
+    <div class="parthead">
+      <span class="step">Parte 3 de 3</span>
+      <h2>Justificación de los valores</h2>
+      <p>El precio sale de horas reales de trabajo por una tarifa de mercado, y se compara con lo que el sitio puede devolver al restaurante.</p>
+    </div>
+
+    <div class="just">
+      <article>
+        <h3>1. Se cobra por horas, y las horas están a la vista</h3>
+        <p>Cada etapa de la tabla tiene sus horas estimadas. El plan Barrio suma <strong>108 horas</strong> a una tarifa combinada de <strong>US$ 22/hora</strong>, que mezcla el valor de diseño, desarrollo, redacción y gestión. Si el alcance cambia, el precio cambia con la misma regla, sin sorpresas.</p>
+      </article>
+
+      <article>
+        <h3>2. Está en la parte media del mercado</h3>
+        <p>Rangos referenciales para un sitio de restaurante con carta y reservas en Latinoamérica:</p>
+        <div class="bars" role="img" aria-label="Comparación de precios: plantilla autogestionada 300 a 600, freelancer 800 a 1.800, esta propuesta 2.400, agencia 3.500 a 8.000 dólares">
+          <div class="bar"><span>Plantilla autogestionada</span><div class="track"><div class="fill" style="left:3.75%;width:3.75%"></div><span class="val">300–600</span></div></div>
+          <div class="bar"><span>Freelancer</span><div class="track"><div class="fill" style="left:10%;width:12.5%"></div><span class="val">800–1.800</span></div></div>
+          <div class="bar"><span>Esta propuesta</span><div class="track"><div class="fill us" style="left:29%;width:2%"></div><span class="val">2.400</span></div></div>
+          <div class="bar"><span>Agencia</span><div class="track"><div class="fill" style="left:43.75%;width:56.25%"></div><span class="val">3.500–8.000</span></div></div>
+        </div>
+        <p style="font-size:13px">Escala de 0 a US$ 8.000. Una plantilla es más barata, pero no trae diseño propio, carta administrable, reservas ni SEO, y el tiempo del dueño para armarla también cuesta.</p>
+      </article>
+
+      <article>
+        <h3>3. Se paga solo en pocos meses</h3>
+        <p>Supuesto conservador: el sitio genera <strong>4 reservas extra por semana</strong>, de 3 personas, con un ticket promedio de <strong>US$ 25</strong> por persona.</p>
+        <div class="roi">
+          <div><b>US$ 300</b><span>venta extra por semana</span></div>
+          <div><b>≈ 8 sem.</b><span>para recuperar US$ 2.400</span></div>
+          <div><b>US$ 15.600</b><span>venta extra en un año</span></div>
+        </div>
+        <p style="font-size:13px">Son supuestos ilustrativos para dimensionar el retorno; se ajustan con los números reales del local.</p>
+      </article>
+
+      <article>
+        <h3>4. Lo que se deja de perder</h3>
+        <ul>
+          <li><strong>Comisiones de apps:</strong> las plataformas de delivery cobran entre 20% y 30% por pedido. Con pedidos propios (plan Completo) ese margen queda en el restaurante.</li>
+          <li><strong>Reservas perdidas:</strong> un DM sin responder un viernes a las 20:00 es una mesa vacía. La reserva online atiende las 24 horas.</li>
+          <li><strong>Búsquedas en Google:</strong> sin sitio, quien busca "restaurante peruano cerca" encuentra a la competencia.</li>
+          <li><strong>Dependencia de Instagram:</strong> el sitio es un activo propio. Si cambia el algoritmo o se cae la cuenta, los clientes igual encuentran la carta y la reserva.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>5. Por qué recomendamos el plan Barrio</h3>
+        <p>Es el punto donde el sitio deja de ser una tarjeta de presentación y empieza a traer clientes: carta que el equipo mantiene al día, reservas directas y presencia en Google. El plan Completo conviene cuando el delivery pese más del 25% de la venta; se puede agregar después sin rehacer nada, porque el plan Barrio ya se construye pensado para crecer.</p>
+      </article>
+
+      <article>
+        <h3>6. Qué queda en manos del restaurante</h3>
+        <ul>
+          <li>Dominio, hosting y cuentas a nombre del restaurante</li>
+          <li>Diseño y código entregados, sin dependencia del proveedor</li>
+          <li>Capacitación y video para editar la carta solos</li>
+          <li>30 días de garantía para corregir errores sin costo</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="foot">Valores referenciales en USD, vigentes por 30 días. Los rangos de mercado y el cálculo de retorno son estimaciones para orientar la decisión, no cifras auditadas. Los contenidos del mockup (logo, platos, dirección, horario) son de ejemplo hasta recibir el material oficial de Barrio Lima.</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  var data = {
+    mar:[
+      {n:"Ceviche clásico",d:"Pesca del día, leche de tigre, camote glaseado, choclo y cancha.",t:"El favorito",c:"a"},
+      {n:"Tiradito al ají amarillo",d:"Láminas finas de pescado, crema de ají amarillo y limón.",t:"Picante suave",c:"b"},
+      {n:"Causa limeña",d:"Papa amarilla prensada con ají, rellena de pollo o mariscos.",t:"Para compartir",c:"c"}
+    ],
+    fuego:[
+      {n:"Lomo saltado",d:"Lomo al wok con cebolla, tomate y sillao, papas fritas y arroz.",t:"Wok",c:"c"},
+      {n:"Anticuchos",d:"Corazón a la parrilla, papa dorada y ají de huacatay.",t:"Parrilla",c:"a"},
+      {n:"Arroz chaufa",d:"Arroz salteado al wok, tortilla, cebollín y kion.",t:"Chifa",c:"b"}
+    ],
+    barra:[
+      {n:"Pisco sour",d:"Pisco quebranta, limón, jarabe, clara y amargo de angostura.",t:"Clásico",c:"b"},
+      {n:"Chicha morada",d:"Maíz morado, piña, canela y clavo. Hecha en casa.",t:"Sin alcohol",c:"c"},
+      {n:"Suspiro a la limeña",d:"Manjar blanco con merengue al oporto.",t:"Postre",c:"a"}
+    ]
+  };
+  var box = document.getElementById("dishes");
+  function render(cat){
+    box.innerHTML = data[cat].map(function(x){
+      return '<div class="dish"><div class="img '+x.c+'" role="img" aria-label="Foto de '+x.n+'"></div><div class="body"><span class="pill">'+x.t+'</span><b>'+x.n+'</b><small>'+x.d+'</small></div></div>';
+    }).join("");
+  }
+  render("mar");
+  document.getElementById("menuTabs").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if(!b) return;
+    this.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-selected", x===b ? "true" : "false"); });
+    render(b.dataset.cat);
+  });
+  document.getElementById("resForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var m = document.getElementById("resMsg");
+    m.textContent = "Ejemplo de confirmación: mesa para " + document.getElementById("r-pax").value + ", " + document.getElementById("r-date").value + " a las " + document.getElementById("r-time").value + ", a nombre de " + document.getElementById("r-name").value + ".";
+    m.hidden = false;
+  });
+})();
+</script>
