@@ -394,17 +394,94 @@ h3.tbl-title{font-size:19px;margin-top:10px}
 .m-branches div{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff;border:1px solid var(--bl-line);border-radius:8px;padding:7px 10px;font-size:11px;color:var(--bl-ink2)}
 .m-branches b{display:block;font-family:var(--f-paint);font-size:14px;letter-spacing:.02em;color:var(--bl-wine);font-weight:900}
 .m-branches span.go{font-family:var(--f-paint);font-size:12px;color:#fff;background:#25d366;border-radius:4px;padding:3px 7px;white-space:nowrap}
+
+/* ---------- V3: paleta sutil, fondo negro y naranja ---------- */
+.site,.phone .screen{
+  --bl-paper:#121010; --bl-ink:#f3ebe3; --bl-ink2:#b3a69b; --bl-line:#2e2723;
+  --bl-wine:#f3ebe3; --bl-pink:#e8822a; --bl-red:#d96f2c; --bl-purple:#c98a3c; --bl-magenta:#e8822a;
+  --bl-teal:#e09a45; --bl-orange:#f0a050; --bl-orange-d:#e8822a; --bl-green:#e8822a; --bl-gold:#e8a24a;
+  --card:#1b1715; --alt:#161311; --deep:#0c0b0a;
+  color-scheme:dark;
+}
+.tlogo{display:grid;line-height:.92;justify-items:start}
+.tlogo small{font-family:var(--f-script);color:var(--bl-orange);font-size:13px;line-height:1}
+.tlogo b{font-family:var(--f-paint);font-weight:900;font-size:30px;letter-spacing:.04em;color:var(--bl-orange-d)}
+.tlogo i{font-style:normal;font-family:var(--f-slab);font-size:19px;letter-spacing:.32em;color:var(--bl-ink)}
+.m-top .tlogo b{font-size:22px}.m-top .tlogo i{font-size:14px}.m-top .tlogo small{font-size:11px}
+.site .greca,.phone .greca{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='14'%3E%3Cpath d='M0 14V10H6V6H12V2H18V0H30V2H36V6H42V10H48V14Z' fill='%23e8822a'/%3E%3C/svg%3E");opacity:.45}
+.site .topstrip,.site .ribbon{background:var(--deep);color:var(--bl-ink2)}
+.site .ribbon{border-block:1px solid var(--bl-line);font-size:16px}
+.site .ribbon span{color:var(--bl-ink)}
+.site .ribbon b{color:var(--bl-orange-d)}
+.site .s-alt{background:var(--alt)}
+.site .splash,.phone .splash{background:
+  radial-gradient(ellipse 36% 32% at 66% 50%, rgba(232,130,42,.22), transparent 70%),
+  radial-gradient(ellipse 24% 22% at 80% 36%, rgba(240,160,80,.14), transparent 70%),
+  radial-gradient(ellipse 30% 26% at 20% 80%, rgba(232,130,42,.08), transparent 70%)}
+.site .sun,.phone .sun{opacity:.55}
+.site .plate,.phone .plate{box-shadow:0 20px 40px -14px rgba(0,0,0,.8)}
+.site .paint span,.phone .paint span{text-shadow:none}
+.site .ph-label{background:rgba(12,11,10,.8);color:var(--bl-ink2)}
+.btn-bl{background:var(--bl-orange-d);color:#160f0a;box-shadow:none}
+.btn-bl:hover{transform:none;box-shadow:none;background:var(--bl-orange)}
+.btn-line{color:var(--bl-orange);border-color:rgba(240,160,80,.7)}
+.btn-wa{background:transparent;border:1.5px solid #25d366;color:var(--bl-ink);box-shadow:none}
+.btn-wa svg{fill:#25d366}
+.res-form .btn-wa{box-shadow:none;background:#25d366;color:#0d1a12;border-color:#25d366}
+.res-form .btn-wa svg{fill:#0d1a12}
+.menu-tabs button{border-width:1.5px}
+.menu-tabs button[aria-selected="true"]{color:#160f0a}
+.gph em{color:#160f0a}
+.gph{filter:saturate(.8)}
+.ig-grid i{filter:saturate(.55) brightness(.8)}
+.stats div,.branch,.qr-card,.svc,.rev,.rev-form,.m-cards div,.m-branches div,.dish{background:var(--card);border-color:var(--bl-line)}
+.stats b{color:var(--bl-orange-d) !important}
+.branch .bh{background:transparent !important;color:var(--bl-ink);border-bottom:1px solid var(--bl-line);padding-top:14px}
+.branch .bh small{color:var(--bl-orange)}
+.branch .bh b{color:var(--bl-ink)}
+.minimap,.mapbox{background:
+  linear-gradient(90deg,transparent 46%,#3a312b 46% 50%,transparent 50%),
+  linear-gradient(0deg,transparent 40%,#3a312b 40% 44%,transparent 44%),#211b18}
+.minimap::after{background:var(--bl-orange-d)}
+.qr-frame{border-color:rgba(232,130,42,.6)}
+.qr-tag{background:var(--deep);border-color:var(--bl-line);color:var(--bl-ink2)}
+.svc{border-top:2px solid var(--bl-orange-d)}
+.svc .ico{background:rgba(232,130,42,.14)}
+.svc .ico svg{stroke:var(--bl-orange)}
+.res-wrap{background:#1a1411;border-top:1px solid var(--bl-line)}
+.res-wrap .script{color:var(--bl-orange)}
+.res-form input,.res-form select{background:var(--deep);color:var(--bl-ink);border:1px solid var(--bl-line);color-scheme:dark}
+.res-msg{color:var(--bl-orange)}
+.db{background:var(--deep);border-color:var(--bl-line)}
+.db-head b{color:var(--bl-orange)}
+.db tr.new td{background:rgba(232,130,42,.16)}
+.rev-form select,.rev-form textarea,.rev-form input{background:var(--deep);border-color:var(--bl-line);color:var(--bl-ink);color-scheme:dark}
+.rev-ok{color:var(--bl-orange)}
+.stars button{color:#3a312b}
+.stars button.on,.rev .st{color:var(--bl-orange-d)}
+.ex{border-color:var(--bl-line);color:var(--bl-ink2)}
+.s-foot2{background:var(--deep);border-top:1px solid var(--bl-line)}
+.s-foot2 .script{color:var(--bl-orange)}
+.phone .notch{background:var(--deep)}
+.phone .burger i{background:var(--bl-ink)}
+.m-bar{background:var(--deep);border-top-color:var(--bl-line)}
+.m-bar .rs{color:#160f0a}
+.m-branches span.go{background:transparent;border:1px solid #25d366;color:var(--bl-ink)}
+.chip{background:rgba(232,130,42,.16);color:var(--bl-ink)}
+.res-wrap h4,.s-split h4{color:var(--bl-ink)}
+.db td{color:var(--bl-ink)}
+.gph{filter:saturate(.7) brightness(.85)}
 </style>
 
 <div class="docnav"><div class="in">
-  <strong>Restaurante Barrio Lima · Mockup web · Versión 2</strong>
+  <strong>Restaurante Barrio Lima · Mockup web · Versión 3</strong>
 </div></div>
 
 <div class="wrap">
   <header class="intro">
     <span class="eyebrow">Propuesta de diseño para @barriolima.restaurante · Octubre 2026</span>
     <h1>Así se vería el sitio de Barrio Lima</h1>
-    <p>Versión 2 con las secciones solicitadas: introducción, los tres locales, reservas que llegan por WhatsApp y quedan guardadas en una base de clientes, carta con fotos y QR, servicios para eventos y un espacio para reseñas.</p>
+    <p>Versión 3: paleta más sutil, con fondo negro y naranja como único color de acento. Incluye introducción, los tres locales, reservas que llegan por WhatsApp y quedan guardadas en una base de clientes, carta con fotos y QR, servicios para eventos y un espacio para reseñas.</p>
     <p class="note">El mockup usa el logo oficial, su paleta y los datos de los locales entregados por el cliente. Fotos, textos de introducción, platos y reseñas son referenciales y se reemplazan por los reales en la versión final. El código QR es un espacio de ejemplo.</p>
   </header>
 
@@ -412,7 +489,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
     <div class="parthead">
       <span class="step">Propuesta de diseño</span>
       <h2>Mockup del sitio web</h2>
-      <p>Misma línea gráfica del logo y del Instagram: fondo blanco, letras de colores pintadas a mano, vino para los títulos, mancha de acuarela naranja, sol inca dorado y greca andina como separador.</p>
+      <p>Fondo negro cálido, naranja como único color de acento y crema para los textos. La letra manuscrita y la greca andina del logo se mantienen en un tono sutil, para un look más sobrio y gastronómico.</p>
     </div>
 
     <div class="brandrow">
@@ -420,16 +497,14 @@ h3.tbl-title{font-size:19px;margin-top:10px}
       <div>
         <h3>Paleta tomada del logo</h3>
         <div class="swatches">
-          <div class="sw"><i style="background:#e8407c"></i>Rosa</div>
-          <div class="sw"><i style="background:#e8523f"></i>Coral</div>
-          <div class="sw"><i style="background:#7a3c9a"></i>Morado</div>
-          <div class="sw"><i style="background:#22a9b8"></i>Turquesa</div>
-          <div class="sw"><i style="background:#f39a2b"></i>Naranja</div>
-          <div class="sw"><i style="background:#8dc63f"></i>Verde</div>
-          <div class="sw"><i style="background:#6e1f2b"></i>Vino</div>
-          <div class="sw"><i style="background:#d9a326"></i>Sol</div>
+          <div class="sw"><i style="background:#121010"></i>Negro</div>
+          <div class="sw"><i style="background:#1d1815"></i>Carbón</div>
+          <div class="sw"><i style="background:#e8822a"></i>Naranja</div>
+          <div class="sw"><i style="background:#f0a050"></i>Ámbar</div>
+          <div class="sw"><i style="background:#f3ebe3"></i>Crema</div>
+          <div class="sw"><i style="background:#25d366"></i>WhatsApp</div>
         </div>
-        <p>Los colores alegres se usan para acentos y botones. El vino da peso a títulos y secciones clave, y el blanco deja respirar la comida. Cada local tiene un color propio para reconocerlo de un vistazo.</p>
+        <p>El naranja sale del logo y se usa con moderación: botones, detalles y títulos manuscritos. Los colores vivos del logo quedan solo en el logo. El verde aparece únicamente en los botones de WhatsApp para que se reconozcan al instante.</p>
       </div>
     </div>
 
@@ -440,7 +515,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
           <div class="site">
             <div class="topstrip"><span>Reñaca · Viña del Mar · Valparaíso</span><span>Reservas por WhatsApp en los 3 locales</span></div>
             <div class="s-nav">
-              <img src="logo.webp" alt="Barrio Lima">
+              <span class="tlogo"><small>Restaurante</small><b>BARRIO</b><i>LIMA</i></span>
               <nav><span>Nosotros</span><span>Locales</span><span>Carta</span><span>Servicios</span><span>Reseñas</span></nav>
               <a class="btn-bl" href="#reserva">RESERVAR</a>
             </div>
@@ -581,7 +656,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
             </div>
 
             <!-- Reservas -->
-            <div class="greca gold" style="background-color:var(--bl-wine)"></div>
+            <div class="greca gold" style="background-color:#1a1411"></div>
             <div class="res-wrap" id="reserva">
               <div>
                 <span class="script">Te esperamos</span>
@@ -686,7 +761,7 @@ h3.tbl-title{font-size:19px;margin-top:10px}
           <div class="screen">
             <div class="notch"><i></i></div>
             <div class="m-scroll">
-              <div class="m-top"><img src="logo.webp" alt="Barrio Lima"><div class="burger"><i></i><i></i><i></i></div></div>
+              <div class="m-top"><span class="tlogo"><small>Restaurante</small><b>BARRIO</b><i>LIMA</i></span><div class="burger"><i></i><i></i><i></i></div></div>
               <div class="greca"></div>
               <div class="splash">
                 <div class="m-hero">
@@ -751,16 +826,16 @@ h3.tbl-title{font-size:19px;margin-top:10px}
     var c = document.getElementById("qr"), g = c.getContext("2d"), n = 29, s = c.width / (n + 2);
     var seed = 7; function rnd(){ seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
     g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height);
-    g.fillStyle = "#6e1f2b";
+    g.fillStyle = "#1a1411";
     function inFinder(x, y){ return (x < 8 && y < 8) || (x > n - 9 && y < 8) || (x < 8 && y > n - 9); }
     for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
       if (inFinder(x, y)) continue;
       if (rnd() > 0.52) g.fillRect((x + 1) * s, (y + 1) * s, s, s);
     }
     function finder(fx, fy){
-      g.fillStyle = "#6e1f2b"; g.fillRect((fx + 1) * s, (fy + 1) * s, 7 * s, 7 * s);
+      g.fillStyle = "#1a1411"; g.fillRect((fx + 1) * s, (fy + 1) * s, 7 * s, 7 * s);
       g.fillStyle = "#fff"; g.fillRect((fx + 2) * s, (fy + 2) * s, 5 * s, 5 * s);
-      g.fillStyle = "#6e1f2b"; g.fillRect((fx + 3) * s, (fy + 3) * s, 3 * s, 3 * s);
+      g.fillStyle = "#1a1411"; g.fillRect((fx + 3) * s, (fy + 3) * s, 3 * s, 3 * s);
     }
     finder(0, 0); finder(n - 7, 0); finder(0, n - 7);
   })();
