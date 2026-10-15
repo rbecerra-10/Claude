@@ -261,26 +261,158 @@ h3.tbl-title{font-size:19px;margin-top:10px}
 .roi b{font-family:var(--f-display);font-size:24px;font-variant-numeric:tabular-nums;color:var(--ink)}
 .roi span{font-size:12px;color:var(--muted)}
 .foot{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+/* ---------- V2: secciones pedidas por el cliente ---------- */
+.s-alt{background:#fff}
+.s-row{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap}
+.btn-wa{font-family:var(--f-paint);font-size:17px;letter-spacing:.04em;background:#25d366;color:#fff;border:0;border-radius:6px;padding:9px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:3px 3px 0 var(--bl-wine);text-decoration:none}
+.btn-wa svg{width:16px;height:16px;fill:#fff}
+.btn-sm{font-size:15px;padding:7px 12px}
+
+/* Introducción */
+.intro-bl{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+@media (max-width:760px){.intro-bl{grid-template-columns:1fr}}
+.intro-bl p{color:var(--bl-ink2);font-size:15px;max-width:58ch}
+.intro-bl .lead{font-size:17px;color:var(--bl-ink)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stats div{background:#fff;border:1px solid var(--bl-line);border-radius:10px;padding:14px;display:grid;gap:2px;text-align:center}
+.stats b{font-family:var(--f-paint);font-size:34px;line-height:1;color:var(--bl-pink)}
+.stats div:nth-child(2) b{color:var(--bl-teal)}
+.stats div:nth-child(3) b{color:var(--bl-orange-d)}
+.stats span{font-size:12px;color:var(--bl-ink2)}
+
+/* Sucursales */
+.branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.branches{grid-template-columns:minmax(0,1fr)}}
+.branch{background:#fff;border:1px solid var(--bl-line);border-radius:10px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.branch .bh{padding:12px 16px;color:#fff;display:grid;gap:0}
+.branch .bh small{font-family:var(--f-script);font-size:15px;opacity:.95}
+.branch .bh b{font-family:var(--f-paint);font-weight:900;font-size:24px;letter-spacing:.02em;line-height:1}
+.branch .bb{padding:14px 16px 16px;display:grid;gap:10px;align-content:start}
+.branch dl{margin:0;display:grid;gap:6px;font-size:13px}
+.branch dl div{display:grid;grid-template-columns:70px 1fr;gap:8px}
+.branch dt{color:var(--bl-ink2)}
+.branch dd{margin:0;color:var(--bl-ink);font-weight:600}
+.branch .acts{display:flex;gap:8px;flex-wrap:wrap}
+.minimap{height:70px;border-radius:6px;background:
+  linear-gradient(90deg,transparent 46%,#e5d6c4 46% 50%,transparent 50%),
+  linear-gradient(0deg,transparent 40%,#e5d6c4 40% 44%,transparent 44%),#fbf3e8;position:relative}
+.minimap::after{content:"";position:absolute;left:calc(48% - 7px);top:calc(42% - 17px);width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--pin,var(--bl-pink))}
+
+/* Carta con fotos + QR */
+.carta-grid{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:20px;align-items:start}
+@media (max-width:760px){.carta-grid{grid-template-columns:minmax(0,1fr)}}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.gph{position:relative;aspect-ratio:1;max-width:100%;border-radius:10px;overflow:hidden}
+.gph span{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;background:linear-gradient(transparent,rgba(58,26,31,.85));color:#fff;font-family:var(--f-slab);font-size:14px;line-height:1.15}
+.gph em{position:absolute;top:8px;left:8px;font-style:normal;font-family:var(--f-paint);font-size:13px;letter-spacing:.04em;color:#fff;background:var(--tab,var(--bl-pink));padding:1px 7px;border-radius:4px}
+.g1{background:radial-gradient(circle at 50% 55%,#fff8ea 0 20%,transparent 20.5%),radial-gradient(circle at 56% 48%,#8dc63f 0 4%,transparent 4.5%),radial-gradient(circle at 50% 55%,#f39a2b 0 32%,transparent 32.5%),linear-gradient(160deg,#fbe3c6,#f3b56a)}
+.g2{background:radial-gradient(circle at 50% 55%,#6e1f2b 0 18%,transparent 18.5%),radial-gradient(circle at 50% 55%,#f9efe0 0 32%,transparent 32.5%),linear-gradient(160deg,#f3d6d0,#d98c94)}
+.g3{background:radial-gradient(circle at 50% 50%,#f6c66a 0 22%,transparent 22.5%),radial-gradient(circle at 50% 50%,#fff 0 32%,transparent 32.5%),linear-gradient(160deg,#d3eef0,#7fcbd4)}
+.g4{background:radial-gradient(circle at 40% 52%,#7a3c9a 0 9%,transparent 9.5%),radial-gradient(circle at 60% 50%,#e8407c 0 9%,transparent 9.5%),radial-gradient(circle at 50% 52%,#fff 0 30%,transparent 30.5%),linear-gradient(160deg,#eadcf2,#b994d0)}
+.g5{background:radial-gradient(circle at 50% 55%,#e8523f 0 16%,transparent 16.5%),radial-gradient(circle at 50% 55%,#fff8ea 0 32%,transparent 32.5%),linear-gradient(160deg,#fde0d6,#f1987f)}
+.g6{background:radial-gradient(ellipse 14% 26% at 50% 50%,#f6f0d0 0 60%,transparent 62%),radial-gradient(circle at 50% 50%,#8dc63f 0 30%,transparent 30.5%),linear-gradient(160deg,#e5f3d2,#a8d46f)}
+.qr-card{background:#fff;border:1px solid var(--bl-line);border-radius:12px;padding:16px;display:grid;gap:10px;justify-items:center;text-align:center}
+.qr-card h5{margin:0;font-family:var(--f-slab);font-weight:400;font-size:18px;color:var(--bl-wine)}
+.qr-card p{font-size:12px;color:var(--bl-ink2);margin:0}
+.qr-frame{position:relative;padding:10px;border:2px dashed var(--bl-gold);border-radius:10px;background:#fff}
+.qr-frame canvas{display:block;width:150px;height:150px;image-rendering:pixelated}
+.qr-frame .qr-logo{position:absolute;inset:0;margin:auto;width:38px;height:38px;border-radius:8px;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 3px #fff}
+.qr-frame .qr-logo img{width:34px;height:auto}
+.qr-tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--bl-ink2);background:var(--bl-paper);border:1px solid var(--bl-line);border-radius:4px;padding:2px 6px}
+
+/* Servicios */
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.services{grid-template-columns:minmax(0,1fr)}}
+.svc{background:#fff;border:1px solid var(--bl-line);border-radius:10px;padding:20px;display:grid;gap:10px;align-content:start;border-top:5px solid var(--c)}
+.svc .ico{width:46px;height:46px;border-radius:50%;background:var(--c);display:grid;place-items:center}
+.svc .ico svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.svc b{font-family:var(--f-slab);font-weight:400;font-size:20px;color:var(--bl-wine);line-height:1.1}
+.svc p{font-size:13px;color:var(--bl-ink2);margin:0}
+.svc ul{margin:0;padding-left:16px;font-size:13px;color:var(--bl-ink2);display:grid;gap:3px}
+
+/* Reservas a WhatsApp + base de datos */
+.res-wrap{display:grid;grid-template-columns:1.05fr .95fr;background:var(--bl-wine);color:var(--bl-paper)}
+@media (max-width:760px){.res-wrap{grid-template-columns:1fr}}
+.res-wrap > div{padding:36px 28px;display:grid;gap:14px;align-content:start}
+.res-wrap > div + div{border-left:1px solid rgba(255,250,243,.18)}
+@media (max-width:760px){.res-wrap > div + div{border-left:0;border-top:1px solid rgba(255,250,243,.18)}}
+.res-wrap h4{font-family:var(--f-slab);font-weight:400;font-size:30px;margin:0;color:var(--bl-paper);line-height:1}
+.res-wrap .script{color:var(--bl-gold);font-size:20px}
+.res-wrap .sub{color:rgba(255,250,243,.82);font-size:14px}
+.res-form .btn-wa{box-shadow:3px 3px 0 var(--bl-gold)}
+.wa-card{background:#efe7dd;border-radius:12px;overflow:hidden;color:#1f2c34}
+.wa-head{background:#075e54;color:#fff;display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:13px}
+.wa-head .wa-av{width:30px;height:30px;border-radius:50%;background:#fff;object-fit:contain;padding:2px;flex:none}
+.wa-head b{display:block;font-size:13px}
+.wa-head small{opacity:.8;font-size:11px}
+.wa-body{padding:14px 12px;display:grid;gap:6px;min-height:150px;align-content:start}
+.wa-bubble{justify-self:end;max-width:92%;background:#dcf8c6;border-radius:8px 0 8px 8px;padding:8px 10px;font-size:12.5px;line-height:1.45;white-space:pre-line;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.wa-bubble time{display:block;text-align:right;font-size:10px;color:#667781;margin-top:2px}
+.res-wrap > .db-row{grid-column:1/-1;border-left:0;border-top:1px solid rgba(255,250,243,.18);padding-top:20px}
+.db{background:rgba(255,250,243,.06);border:1px solid rgba(255,250,243,.18);border-radius:10px;overflow:hidden}
+.db-head{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:9px 12px;font-size:12px;color:rgba(255,250,243,.85);border-bottom:1px solid rgba(255,250,243,.18);flex-wrap:wrap}
+.db-head b{font-family:var(--f-paint);font-size:16px;letter-spacing:.04em;color:var(--bl-gold);font-weight:400}
+.db-scroll{overflow-x:auto}
+.db table{border-collapse:collapse;width:100%;min-width:560px;font-size:12px}
+.db th,.db td{padding:7px 10px;text-align:left;border-bottom:1px solid rgba(255,250,243,.1);white-space:nowrap}
+.db th{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,250,243,.6);font-weight:500}
+.db td{color:var(--bl-paper)}
+.db tr.new td{background:rgba(217,163,38,.18)}
+.chip{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:999px;background:rgba(255,250,243,.14)}
+
+/* Reseñas */
+.rev-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:start}
+@media (max-width:760px){.rev-grid{grid-template-columns:minmax(0,1fr)}}
+.rev-form{background:#fff;border:1px solid var(--bl-line);border-radius:12px;padding:18px;display:grid;gap:12px}
+.rev-form b{font-family:var(--f-slab);font-weight:400;font-size:20px;color:var(--bl-wine)}
+.stars{display:flex;gap:4px}
+.stars button{background:none;border:0;padding:0;cursor:pointer;font-size:28px;line-height:1;color:#e4d6c6}
+.stars button.on{color:var(--bl-gold)}
+.rev-form label{display:grid;gap:4px;font-size:12px;color:var(--bl-ink2)}
+.rev-form select,.rev-form textarea,.rev-form input{font:inherit;font-size:14px;background:var(--bl-paper);border:1px solid var(--bl-line);border-radius:6px;padding:8px 10px;color:var(--bl-ink);width:100%;color-scheme:light}
+.rev-form textarea{min-height:70px;resize:vertical}
+.rev-ok{font-size:13px;color:var(--bl-wine);font-weight:600}
+.rev-list{display:grid;gap:12px}
+.rev{background:#fff;border:1px solid var(--bl-line);border-radius:12px;padding:14px 16px;display:grid;gap:6px}
+.rev .top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.rev .who{font-weight:700;font-size:14px;color:var(--bl-ink)}
+.rev .st{color:var(--bl-gold);letter-spacing:2px;font-size:14px}
+.rev p{font-size:13px;color:var(--bl-ink2);margin:0}
+.rev .meta2{font-size:11px;color:var(--bl-ink2)}
+.ex{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--bl-ink2);border:1px solid var(--bl-line);border-radius:3px;padding:1px 5px}
+
+/* Pie con sucursales */
+.s-foot2{background:var(--bl-ink);color:rgba(255,250,243,.8);padding:24px 28px;display:grid;grid-template-columns:1.2fr repeat(3,minmax(0,1fr));gap:20px;font-size:12px}
+@media (max-width:760px){.s-foot2{grid-template-columns:minmax(0,1fr)}}
+.s-foot2 .script{color:var(--bl-gold);font-size:20px}
+.s-foot2 b{display:block;color:var(--bl-paper);font-size:13px;margin-bottom:2px}
+
+/* Teléfono v2 */
+.m-branches{display:grid;gap:6px;padding:4px 14px 10px}
+.m-branches div{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff;border:1px solid var(--bl-line);border-radius:8px;padding:7px 10px;font-size:11px;color:var(--bl-ink2)}
+.m-branches b{display:block;font-family:var(--f-paint);font-size:14px;letter-spacing:.02em;color:var(--bl-wine);font-weight:900}
+.m-branches span.go{font-family:var(--f-paint);font-size:12px;color:#fff;background:#25d366;border-radius:4px;padding:3px 7px;white-space:nowrap}
 </style>
 
 <div class="docnav"><div class="in">
-  <strong>Restaurante Barrio Lima · Mockup web</strong>
+  <strong>Restaurante Barrio Lima · Mockup web · Versión 2</strong>
 </div></div>
 
 <div class="wrap">
   <header class="intro">
     <span class="eyebrow">Propuesta de diseño para @barriolima.restaurante · Octubre 2026</span>
     <h1>Así se vería el sitio de Barrio Lima</h1>
-    <p>Un sitio con la misma identidad del logo y del Instagram, pensado para que quien llegue desde Google o desde redes vea la carta, reserve su mesa y encuentre el local en segundos.</p>
-    <p class="note">El mockup usa el logo oficial y su paleta. Platos, dirección, horarios y fotos son referenciales y se reemplazan por los reales del local en la versión final.</p>
+    <p>Versión 2 con las secciones solicitadas: introducción, los tres locales, reservas que llegan por WhatsApp y quedan guardadas en una base de clientes, carta con fotos y QR, servicios para eventos y un espacio para reseñas.</p>
+    <p class="note">El mockup usa el logo oficial, su paleta y los datos de los locales entregados por el cliente. Fotos, textos de introducción, platos y reseñas son referenciales y se reemplazan por los reales en la versión final. El código QR es un espacio de ejemplo.</p>
   </header>
 
-  <!-- ================= 1. MOCKUP ================= -->
   <section class="part" id="mockup">
     <div class="parthead">
       <span class="step">Propuesta de diseño</span>
       <h2>Mockup del sitio web</h2>
-      <p>El sitio sigue la misma línea gráfica del logo y del Instagram: fondo blanco, letras de colores pintadas a mano, vino para los títulos, una mancha de acuarela naranja, el sol inca dorado y la greca andina como separador. Quien llegue desde Instagram reconoce la marca al instante.</p>
+      <p>Misma línea gráfica del logo y del Instagram: fondo blanco, letras de colores pintadas a mano, vino para los títulos, mancha de acuarela naranja, sol inca dorado y greca andina como separador.</p>
     </div>
 
     <div class="brandrow">
@@ -297,31 +429,32 @@ h3.tbl-title{font-size:19px;margin-top:10px}
           <div class="sw"><i style="background:#6e1f2b"></i>Vino</div>
           <div class="sw"><i style="background:#d9a326"></i>Sol</div>
         </div>
-        <p>Los colores alegres se usan para acentos y llamados a la acción. El vino da peso a títulos y secciones clave, y el blanco deja respirar la comida. La letra manuscrita repite el "Cocina Peruana Fusión" del logo.</p>
+        <p>Los colores alegres se usan para acentos y botones. El vino da peso a títulos y secciones clave, y el blanco deja respirar la comida. Cada local tiene un color propio para reconocerlo de un vistazo.</p>
       </div>
     </div>
 
     <div class="mock-grid">
       <div>
         <div class="browser">
-          <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">barriolima.com</div></div>
+          <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">barriolima.cl</div></div>
           <div class="site">
-            <div class="topstrip"><span>Mar a Dom · 12:30 a 23:30</span><span>Reservas y pedidos por WhatsApp</span></div>
+            <div class="topstrip"><span>Reñaca · Viña del Mar · Valparaíso</span><span>Reservas por WhatsApp en los 3 locales</span></div>
             <div class="s-nav">
               <img src="logo.webp" alt="Barrio Lima">
-              <nav><span>Carta</span><span>Nosotros</span><span>Eventos</span><span>Ubicación</span></nav>
+              <nav><span>Nosotros</span><span>Locales</span><span>Carta</span><span>Servicios</span><span>Reseñas</span></nav>
               <a class="btn-bl" href="#reserva">RESERVAR</a>
             </div>
             <div class="greca"></div>
 
+            <!-- Portada -->
             <div class="s-hero splash">
               <div class="copy">
                 <span class="script">Cocina Peruana Fusión</span>
                 <h3>Sabores de Lima que se viven en el</h3>
                 <div class="paint" aria-label="Barrio"><span class="c1" style="--r:-3deg">B</span><span class="c2" style="--r:2deg">A</span><span class="c3" style="--r:-2deg">R</span><span class="c4" style="--r:3deg">R</span><span class="c5" style="--r:-1deg">I</span><span class="c6" style="--r:2deg">O</span></div>
-                <p>Ceviche recién cortado, saltados al wok y pisco sour bien batido. Cocina peruana con toques de fusión y ambiente de barrio.</p>
+                <p>Ceviche recién cortado, saltados al wok y pisco sour bien batido. Te esperamos en Reñaca, Viña del Mar y Valparaíso.</p>
                 <div class="cta-row">
-                  <a class="btn-bl" href="#reserva">RESERVA TU MESA</a>
+                  <a class="btn-wa" href="#reserva"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>RESERVA POR WHATSAPP</a>
                   <button class="btn-line" type="button">VER LA CARTA</button>
                 </div>
               </div>
@@ -334,49 +467,195 @@ h3.tbl-title{font-size:19px;margin-top:10px}
 
             <div class="ribbon" aria-hidden="true"><span>CEVICHE</span><b>✹</b><span>LOMO SALTADO</span><b>✹</b><span>CAUSA</span><b>✹</b><span>PISCO SOUR</span><b>✹</b><span>CHAUFA</span></div>
 
+            <!-- Introducción -->
             <div class="s-block">
-              <div class="s-head">
-                <span class="script">Nuestra</span>
-                <h4>CARTA</h4>
-                <p class="sub">Carta administrable desde el celular: el restaurante cambia platos, precios y fotos sin depender de nadie.</p>
+              <div class="intro-bl">
+                <div style="display:grid;gap:10px">
+                  <div class="s-head"><span class="script">Bienvenidos</span><h4>SOMOS BARRIO</h4></div>
+                  <p class="lead">Cocina peruana fusión con alma de barrio limeño, servida frente al mar de la Quinta Región.</p>
+                  <p>Ceviches, causas, saltados al wok y la mejor barra de pisco, preparados con producto fresco y la sazón de casa. Junto a Cholos Criollo, hoy te recibimos en tres locales para almorzar, celebrar o compartir con tu equipo.</p>
+                </div>
+                <div class="stats">
+                  <div><b>3</b><span>locales</span></div>
+                  <div><b>2</b><span>marcas: Barrio Lima y Cholos Criollo</span></div>
+                  <div><b>1</b><span>misma sazón peruana</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sucursales -->
+            <div class="s-block s-alt" id="locales">
+              <div class="s-row">
+                <div class="s-head"><span class="script">Encuéntranos</span><h4>NUESTROS LOCALES</h4></div>
+                <span class="sub">Reserva directo por WhatsApp en el local que prefieras</span>
+              </div>
+              <div class="branches">
+                <article class="branch">
+                  <div class="bh" style="background:var(--bl-pink)"><small>Restaurante</small><b>BARRIO LIMA</b></div>
+                  <div class="bb">
+                    <dl>
+                      <div><dt>Dirección</dt><dd>Av. Borgoño 15280, Reñaca</dd></div>
+                      <div><dt>Reservas</dt><dd>+56 9 3949 1543</dd></div>
+                    </dl>
+                    <div class="minimap" style="--pin:var(--bl-pink)" role="img" aria-label="Mapa Reñaca"></div>
+                    <div class="acts"><span class="btn-wa btn-sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>RESERVAR</span><span class="btn-line btn-sm">CÓMO LLEGAR</span></div>
+                  </div>
+                </article>
+                <article class="branch">
+                  <div class="bh" style="background:var(--bl-teal)"><small>Viña del Mar</small><b>CHOLOS CRIOLLO</b></div>
+                  <div class="bb">
+                    <dl>
+                      <div><dt>Dirección</dt><dd>3 Poniente 501, esq. 6 Norte, Viña del Mar</dd></div>
+                      <div><dt>Reservas</dt><dd>+56 9 3949 1544</dd></div>
+                    </dl>
+                    <div class="minimap" style="--pin:var(--bl-teal)" role="img" aria-label="Mapa Viña del Mar"></div>
+                    <div class="acts"><span class="btn-wa btn-sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>RESERVAR</span><span class="btn-line btn-sm">CÓMO LLEGAR</span></div>
+                  </div>
+                </article>
+                <article class="branch">
+                  <div class="bh" style="background:var(--bl-orange-d)"><small>Valparaíso</small><b>CHOLOS CRIOLLO</b></div>
+                  <div class="bb">
+                    <dl>
+                      <div><dt>Dirección</dt><dd>Esmeralda 1099, Valparaíso</dd></div>
+                      <div><dt>Reservas</dt><dd>+56 9 3949 1545</dd></div>
+                    </dl>
+                    <div class="minimap" style="--pin:var(--bl-orange-d)" role="img" aria-label="Mapa Valparaíso"></div>
+                    <div class="acts"><span class="btn-wa btn-sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>RESERVAR</span><span class="btn-line btn-sm">CÓMO LLEGAR</span></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Carta con fotos + QR -->
+            <div class="s-block" id="carta">
+              <div class="s-row">
+                <div class="s-head"><span class="script">Nuestra</span><h4>CARTA</h4></div>
+                <span class="sub">Fotos de cada plato, editables desde el celular</span>
               </div>
               <div class="menu-tabs" role="tablist" id="menuTabs">
                 <button type="button" role="tab" aria-selected="true" data-cat="mar" style="--tab:var(--bl-teal)">DEL MAR</button>
                 <button type="button" role="tab" aria-selected="false" data-cat="fuego" style="--tab:var(--bl-orange-d)">WOK Y BRASA</button>
                 <button type="button" role="tab" aria-selected="false" data-cat="barra" style="--tab:var(--bl-purple)">BARRA Y POSTRES</button>
               </div>
-              <div class="dishes" id="dishes" style="--tab:var(--bl-teal)"></div>
+              <div class="carta-grid">
+                <div class="gallery" id="gallery" style="--tab:var(--bl-teal)"></div>
+                <aside class="qr-card">
+                  <h5>Carta digital</h5>
+                  <div class="qr-frame"><canvas id="qr" width="150" height="150" aria-label="Código QR de ejemplo"></canvas><div class="qr-logo"><img src="logo.webp" alt=""></div></div>
+                  <span class="qr-tag">QR de ejemplo · espacio reservado</span>
+                  <p>Escanea para ver la carta completa con precios en tu celular. El mismo QR va en las mesas de los tres locales.</p>
+                  <span class="btn-bl btn-sm">VER CARTA COMPLETA</span>
+                </aside>
+              </div>
             </div>
 
+            <!-- Servicios -->
+            <div class="s-block s-alt" id="servicios">
+              <div class="s-row">
+                <div class="s-head"><span class="script">Celebra con nosotros</span><h4>SERVICIOS</h4></div>
+                <span class="sub">Cotiza tu evento por WhatsApp en el local que prefieras</span>
+              </div>
+              <div class="services">
+                <article class="svc" style="--c:var(--bl-purple)">
+                  <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>
+                  <b>Eventos corporativos</b>
+                  <p>Almuerzos de equipo, reuniones con clientes y cierres de año con menú a medida.</p>
+                  <ul><li>Menús por persona</li><li>Espacio reservado</li><li>Factura para empresas</li></ul>
+                  <span class="btn-wa btn-sm" style="justify-self:start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>COTIZAR</span>
+                </article>
+                <article class="svc" style="--c:var(--bl-pink)">
+                  <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 21h16M5 21v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7M5 16c2 1.5 4 1.5 7 0s5-1.5 7 0M12 12V8M12 5.5c.8-.9.8-1.9 0-2.5-.8.6-.8 1.6 0 2.5z"/></svg></span>
+                  <b>Celebración de cumpleaños</b>
+                  <p>Mesa decorada, postre con vela y brindis para el festejado. Tú solo llegas a celebrar.</p>
+                  <ul><li>Mesas para grupos</li><li>Torta o postre especial</li><li>Brindis con pisco sour</li></ul>
+                  <span class="btn-wa btn-sm" style="justify-self:start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>COTIZAR</span>
+                </article>
+                <article class="svc" style="--c:var(--bl-red)">
+                  <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span>
+                  <b>Aniversario</b>
+                  <p>Una cena especial para dos o con la familia, con mesa preferente y detalle de la casa.</p>
+                  <ul><li>Mesa preferente</li><li>Menú degustación</li><li>Detalle sorpresa</li></ul>
+                  <span class="btn-wa btn-sm" style="justify-self:start"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>COTIZAR</span>
+                </article>
+              </div>
+            </div>
+
+            <!-- Reservas -->
             <div class="greca gold" style="background-color:var(--bl-wine)"></div>
-            <div class="s-split" id="reserva">
+            <div class="res-wrap" id="reserva">
               <div>
                 <span class="script">Te esperamos</span>
-                <h4>RESERVA</h4>
-                <p class="sub">Confirmación inmediata por correo y WhatsApp. Sin esperar respuesta por DM.</p>
+                <h4>RESERVA TU MESA</h4>
+                <p class="sub">Completa tus datos y la reserva llega directo al WhatsApp del local. Tus datos quedan guardados para confirmarte y avisarte de novedades.</p>
                 <form class="res-form" id="resForm">
-                  <label>Fecha<input id="r-date" type="date" value="2026-10-17"></label>
-                  <label>Hora<select id="r-time"><option>13:00</option><option>13:30</option><option selected>20:30</option><option>21:00</option></select></label>
-                  <label>Personas<select id="r-pax"><option>2</option><option selected>4</option><option>6</option><option>8+</option></select></label>
+                  <label class="full">Local<select id="r-local">
+                    <option value="0" selected>Restaurante Barrio Lima · Reñaca</option>
+                    <option value="1">Cholos Criollo · Viña del Mar</option>
+                    <option value="2">Cholos Criollo · Valparaíso</option>
+                  </select></label>
                   <label>Nombre<input id="r-name" type="text" value="Camila Rojas"></label>
-                  <div class="full"><button class="btn-bl" type="submit">CONFIRMAR RESERVA</button></div>
-                  <p class="res-msg full" id="resMsg" hidden>Ejemplo de confirmación.</p>
+                  <label>Correo<input id="r-mail" type="email" value="camila.rojas@correo.cl"></label>
+                  <label>Fecha<input id="r-date" type="date" value="2026-10-24"></label>
+                  <label>Hora<select id="r-time"><option>13:00</option><option>13:30</option><option>14:00</option><option>20:00</option><option selected>20:30</option><option>21:00</option></select></label>
+                  <label>Personas<select id="r-pax"><option>2</option><option>3</option><option selected>4</option><option>6</option><option>8</option><option>10 o más</option></select></label>
+                  <label>Motivo<select id="r-why"><option>Almuerzo o cena</option><option selected>Cumpleaños</option><option>Aniversario</option><option>Evento corporativo</option><option>Otro</option></select></label>
+                  <div class="full"><button class="btn-wa" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/></svg>ENVIAR RESERVA POR WHATSAPP</button></div>
+                  <p class="res-msg full" id="resMsg" hidden>Ejemplo: se abriría WhatsApp con este mensaje y la reserva quedaría guardada en la base de clientes.</p>
                 </form>
               </div>
               <div>
-                <span class="script">Visítanos</span>
-                <h4>EL BARRIO</h4>
-                <dl class="info-list">
-                  <div><span>Dirección</span><span>Av. Ejemplo 1234 (referencial)</span></div>
-                  <div><span>Horario</span><span>Mar a Dom · 12:30 a 16:00 y 19:30 a 23:30</span></div>
-                  <div><span>Pedidos</span><span>Retiro en local y delivery propio</span></div>
-                </dl>
-                <div class="mapbox" role="img" aria-label="Mapa de ubicación"></div>
+                <div class="wa-card" aria-label="Vista previa del mensaje de WhatsApp">
+                  <div class="wa-head"><img src="logo.webp" alt="" class="wa-av"><div><b id="waName">Barrio Lima Reñaca</b><small id="waNum">+56 9 3949 1543</small></div></div>
+                  <div class="wa-body"><div class="wa-bubble" id="waMsg"></div></div>
+                </div>
+              </div>
+              <div class="db-row">
+                <div class="db">
+                  <div class="db-head"><b>BASE DE CLIENTES</b><span>Panel privado del restaurante · datos de ejemplo</span></div>
+                  <div class="db-scroll">
+                    <table>
+                      <thead><tr><th>Nombre</th><th>Correo</th><th>Local</th><th>Fecha</th><th>Hora</th><th>Pers.</th><th>Motivo</th></tr></thead>
+                      <tbody id="dbRows">
+                        <tr><td>Diego Muñoz</td><td>dmunoz@correo.cl</td><td>Viña</td><td>23/10</td><td>21:00</td><td>2</td><td><span class="chip">Aniversario</span></td></tr>
+                        <tr><td>Empresa Andes SpA</td><td>eventos@andes.cl</td><td>Valparaíso</td><td>23/10</td><td>13:30</td><td>12</td><td><span class="chip">Corporativo</span></td></tr>
+                        <tr><td>Valentina Soto</td><td>vsoto@correo.cl</td><td>Reñaca</td><td>22/10</td><td>20:00</td><td>6</td><td><span class="chip">Cumpleaños</span></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="s-block">
-              <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
+            <!-- Reseñas -->
+            <div class="s-block" id="resenas">
+              <div class="s-row">
+                <div class="s-head"><span class="script">Tu opinión nos importa</span><h4>RESEÑAS</h4></div>
+                <span class="btn-bl btn-sm" id="revJump">DÉJANOS TU RESEÑA</span>
+              </div>
+              <div class="rev-grid">
+                <form class="rev-form" id="revForm">
+                  <b>¿Cómo te fue en Barrio?</b>
+                  <div class="stars" id="stars" role="radiogroup" aria-label="Calificación">
+                    <button type="button" class="on" data-v="1" aria-label="1 estrella">★</button><button type="button" class="on" data-v="2" aria-label="2 estrellas">★</button><button type="button" class="on" data-v="3" aria-label="3 estrellas">★</button><button type="button" class="on" data-v="4" aria-label="4 estrellas">★</button><button type="button" class="on" data-v="5" aria-label="5 estrellas">★</button>
+                  </div>
+                  <label>Local<select id="rv-local"><option>Barrio Lima · Reñaca</option><option>Cholos Criollo · Viña del Mar</option><option>Cholos Criollo · Valparaíso</option></select></label>
+                  <label>Nombre<input id="rv-name" type="text" value="Francisca P."></label>
+                  <label>Comentario<textarea id="rv-text">El ceviche estaba buenísimo y la atención muy cercana. Volvemos pronto.</textarea></label>
+                  <button class="btn-bl" type="submit">PUBLICAR RESEÑA</button>
+                  <p class="rev-ok" id="revOk" hidden>Ejemplo: la reseña llega al restaurante para aprobarla antes de publicarse.</p>
+                  <span class="sub" style="font-size:12px">También puedes dejarla en Google Maps con un clic.</span>
+                </form>
+                <div class="rev-list" id="revList">
+                  <div class="rev"><div class="top"><span class="who">Andrés M.</span><span class="st">★★★★★</span></div><p>Los anticuchos y el pisco sour, de lo mejor que he probado en Viña. Muy buena atención.</p><div class="top"><span class="meta2">Cholos Criollo · Viña del Mar</span><span class="ex">Ejemplo</span></div></div>
+                  <div class="rev"><div class="top"><span class="who">Carolina R.</span><span class="st">★★★★★</span></div><p>Celebramos un cumpleaños y nos prepararon la mesa con todo. La vista en Reñaca es increíble.</p><div class="top"><span class="meta2">Barrio Lima · Reñaca</span><span class="ex">Ejemplo</span></div></div>
+                  <div class="rev"><div class="top"><span class="who">Equipo Puerto Digital</span><span class="st">★★★★☆</span></div><p>Hicimos el almuerzo de fin de año del equipo. Menú rico y bien coordinado.</p><div class="top"><span class="meta2">Cholos Criollo · Valparaíso</span><span class="ex">Ejemplo</span></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="s-block s-alt">
+              <div class="s-row">
                 <div class="s-head"><span class="script">Síguenos</span><h4>@BARRIOLIMA</h4></div>
                 <span class="sub">Feed de Instagram conectado: se actualiza solo</span>
               </div>
@@ -391,10 +670,15 @@ h3.tbl-title{font-size:19px;margin-top:10px}
             </div>
 
             <div class="greca"></div>
-            <div class="s-foot"><span class="script">Cocina Peruana Fusión</span><span>© 2026 Restaurante Barrio Lima · Instagram · WhatsApp · Google Maps</span></div>
+            <div class="s-foot2">
+              <div><span class="script">Cocina Peruana Fusión</span><p style="margin-top:6px">© 2026 Restaurante Barrio Lima · Instagram · WhatsApp</p></div>
+              <div><b>Barrio Lima · Reñaca</b>Av. Borgoño 15280<br>+56 9 3949 1543</div>
+              <div><b>Cholos Criollo · Viña</b>3 Poniente 501, 6 Norte<br>+56 9 3949 1544</div>
+              <div><b>Cholos Criollo · Valparaíso</b>Esmeralda 1099<br>+56 9 3949 1545</div>
+            </div>
           </div>
         </div>
-        <p class="caption">Vista escritorio: home con carta, reserva, ubicación e Instagram.</p>
+        <p class="caption">Vista escritorio: introducción, locales, carta con fotos y QR, servicios, reservas a WhatsApp, reseñas e Instagram.</p>
       </div>
 
       <div>
@@ -410,68 +694,133 @@ h3.tbl-title{font-size:19px;margin-top:10px}
                   <h3>Sabores de Lima que se viven en el</h3>
                   <div class="paint" aria-label="Barrio"><span class="c1" style="--r:-3deg">B</span><span class="c2" style="--r:2deg">A</span><span class="c3" style="--r:-2deg">R</span><span class="c4" style="--r:3deg">R</span><span class="c5" style="--r:-1deg">I</span><span class="c6" style="--r:2deg">O</span></div>
                 </div>
-                <div class="m-art"><div class="sun" aria-hidden="true"></div><div class="plate" role="img" aria-label="Foto del plato estrella"></div></div>
+              </div>
+              <div class="m-hero" style="padding-top:2px;padding-bottom:6px"><h3 style="font-size:17px">Nuestros locales</h3></div>
+              <div class="m-branches">
+                <div><span><b>BARRIO LIMA</b>Av. Borgoño 15280, Reñaca</span><span class="go">RESERVAR</span></div>
+                <div><span><b>CHOLOS CRIOLLO</b>3 Poniente 501, Viña</span><span class="go">RESERVAR</span></div>
+                <div><span><b>CHOLOS CRIOLLO</b>Esmeralda 1099, Valpo</span><span class="go">RESERVAR</span></div>
               </div>
               <div class="m-cards">
-                <div><b>Ceviche clásico</b>Leche de tigre, camote, choclo</div>
-                <div><b>Lomo saltado</b>Al wok, papas fritas, arroz</div>
-                <div><b>Pisco sour</b>Quebranta, limón, amargo</div>
+                <div><b>Eventos corporativos</b>Menús para equipos</div>
+                <div><b>Cumpleaños</b>Mesa decorada y brindis</div>
+                <div><b>Aniversario</b>Cena especial</div>
               </div>
             </div>
-            <div class="m-bar"><span class="wa">WHATSAPP</span><span class="rs">RESERVAR</span></div>
+            <div class="m-bar"><span class="wa" style="background:#25d366">WHATSAPP</span><span class="rs">RESERVAR</span></div>
           </div>
         </div>
-        <p class="caption">Vista móvil: la mayoría de las visitas llegará desde el teléfono, por eso los botones de reservar y WhatsApp quedan fijos abajo.</p>
+        <p class="caption">Vista móvil: los locales y los botones de reservar quedan a un toque. La barra de abajo queda fija mientras se navega.</p>
       </div>
     </div>
 
-    <div class="annot">
-      <div><b>Reserva directa</b><span>Formulario con confirmación automática. Reduce DMs y llamadas en hora punta.</span></div>
-      <div><b>Carta viva</b><span>Editable desde el celular. Sin PDFs desactualizados ni fotos borrosas del menú impreso.</span></div>
-      <div><b>Aparece en Google</b><span>SEO local, ficha de Google Business y datos estructurados de restaurante y carta.</span></div>
-      <div><b>Misma marca que Instagram</b><span>Colores, letras y elementos del logo. El feed alimenta el sitio y el sitio devuelve seguidores.</span></div>
+    <div class="annot" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+      <div><b>Reservas a WhatsApp</b><span>El cliente elige local, fecha, hora, personas y motivo. El mensaje llega listo al WhatsApp de ese local.</span></div>
+      <div><b>Base de clientes</b><span>Cada reserva guarda nombre, correo, fecha, hora, personas y motivo en un panel privado, exportable a Excel.</span></div>
+      <div><b>Tres locales</b><span>Barrio Lima en Reñaca y Cholos Criollo en Viña y Valparaíso, cada uno con su dirección, mapa y número.</span></div>
+      <div><b>Carta con fotos y QR</b><span>Galería por categoría y un QR para las mesas que abre la carta completa en el celular.</span></div>
+      <div><b>Servicios</b><span>Eventos corporativos, cumpleaños y aniversarios, con botón para cotizar por WhatsApp.</span></div>
+      <div><b>Reseñas</b><span>Botón para dejar comentarios. El restaurante los aprueba antes de publicarlos y puede enviar al cliente a Google.</span></div>
     </div>
   </section>
-
 </div>
 
 <script>
 (function(){
   var data = {
-    mar:[
-      {n:"Ceviche clásico",d:"Pesca del día, leche de tigre, camote glaseado, choclo y cancha.",t:"El favorito",c:"a"},
-      {n:"Tiradito al ají amarillo",d:"Láminas finas de pescado, crema de ají amarillo y limón.",t:"Picante suave",c:"b"},
-      {n:"Causa limeña",d:"Papa amarilla prensada con ají, rellena de pollo o mariscos.",t:"Para compartir",c:"c"}
-    ],
-    fuego:[
-      {n:"Lomo saltado",d:"Lomo al wok con cebolla, tomate y sillao, papas fritas y arroz.",t:"Wok",c:"c"},
-      {n:"Anticuchos",d:"Corazón a la brasa, papa dorada y ají de huacatay.",t:"Brasa",c:"a"},
-      {n:"Arroz chaufa",d:"Arroz salteado al wok, tortilla, cebollín y kion.",t:"Chifa",c:"b"}
-    ],
-    barra:[
-      {n:"Pisco sour",d:"Pisco quebranta, limón, jarabe, clara y amargo de angostura.",t:"Clásico",c:"b"},
-      {n:"Chicha morada",d:"Maíz morado, piña, canela y clavo. Hecha en casa.",t:"Sin alcohol",c:"c"},
-      {n:"Suspiro a la limeña",d:"Manjar blanco con merengue al oporto.",t:"Postre",c:"a"}
-    ]
+    mar:[["Ceviche clásico","g1","Favorito"],["Tiradito al ají amarillo","g5","Picante suave"],["Causa limeña","g3","Para compartir"],["Leche de tigre","g2","Clásico"],["Jalea mixta","g6","Para compartir"],["Ceviche nikkei","g4","Fusión"]],
+    fuego:[["Lomo saltado","g2","Wok"],["Arroz chaufa","g6","Chifa"],["Anticuchos","g5","Brasa"],["Ají de gallina","g1","Criollo"],["Tallarín saltado","g3","Wok"],["Pollo a la brasa","g4","Brasa"]],
+    barra:[["Pisco sour","g3","Clásico"],["Chicha morada","g4","Sin alcohol"],["Maracuyá sour","g1","De la casa"],["Suspiro a la limeña","g5","Postre"],["Picarones","g6","Postre"],["Chilcano","g2","Barra"]]
   };
-  var box = document.getElementById("dishes");
+  var gal = document.getElementById("gallery");
   function render(cat){
-    box.innerHTML = data[cat].map(function(x){
-      return '<div class="dish"><div class="img '+x.c+'" role="img" aria-label="Foto de '+x.n+'"></div><div class="body"><span class="pill">'+x.t+'</span><b>'+x.n+'</b><small>'+x.d+'</small></div></div>';
+    gal.innerHTML = data[cat].map(function(x){
+      return '<div class="gph '+x[1]+'" role="img" aria-label="Foto de '+x[0]+'"><em>'+x[2]+'</em><span>'+x[0]+'</span></div>';
     }).join("");
   }
   render("mar");
   document.getElementById("menuTabs").addEventListener("click", function(e){
     var b = e.target.closest("button"); if(!b) return;
     this.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-selected", x===b ? "true" : "false"); });
-    box.style.setProperty("--tab", b.style.getPropertyValue("--tab"));
+    gal.style.setProperty("--tab", b.style.getPropertyValue("--tab"));
     render(b.dataset.cat);
   });
-  document.getElementById("resForm").addEventListener("submit", function(e){
+
+  // QR de ejemplo (patrón decorativo, no codifica ningún enlace)
+  (function(){
+    var c = document.getElementById("qr"), g = c.getContext("2d"), n = 29, s = c.width / (n + 2);
+    var seed = 7; function rnd(){ seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height);
+    g.fillStyle = "#6e1f2b";
+    function inFinder(x, y){ return (x < 8 && y < 8) || (x > n - 9 && y < 8) || (x < 8 && y > n - 9); }
+    for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+      if (inFinder(x, y)) continue;
+      if (rnd() > 0.52) g.fillRect((x + 1) * s, (y + 1) * s, s, s);
+    }
+    function finder(fx, fy){
+      g.fillStyle = "#6e1f2b"; g.fillRect((fx + 1) * s, (fy + 1) * s, 7 * s, 7 * s);
+      g.fillStyle = "#fff"; g.fillRect((fx + 2) * s, (fy + 2) * s, 5 * s, 5 * s);
+      g.fillStyle = "#6e1f2b"; g.fillRect((fx + 3) * s, (fy + 3) * s, 3 * s, 3 * s);
+    }
+    finder(0, 0); finder(n - 7, 0); finder(0, n - 7);
+  })();
+
+  // Reserva: vista previa de WhatsApp + base de clientes
+  var locales = [
+    {name:"Barrio Lima Reñaca", full:"Restaurante Barrio Lima (Reñaca)", num:"+56 9 3949 1543", short:"Reñaca"},
+    {name:"Cholos Criollo Viña", full:"Cholos Criollo (Viña del Mar)", num:"+56 9 3949 1544", short:"Viña"},
+    {name:"Cholos Criollo Valparaíso", full:"Cholos Criollo (Valparaíso)", num:"+56 9 3949 1545", short:"Valparaíso"}
+  ];
+  var dias = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+  function $(id){ return document.getElementById(id); }
+  function fmtDate(v, short){
+    var p = (v || "").split("-"); if (p.length !== 3) return v;
+    var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return short ? p[2] + "/" + p[1] : dias[d.getDay()] + " " + p[2] + "/" + p[1] + "/" + p[0];
+  }
+  function preview(){
+    var l = locales[+$("r-local").value];
+    $("waName").textContent = l.name; $("waNum").textContent = l.num;
+    $("waMsg").innerHTML = "";
+    var txt = "Hola, quiero hacer una reserva.\n\nLocal: " + l.full + "\nNombre: " + $("r-name").value + "\nFecha: " + fmtDate($("r-date").value) + "\nHora: " + $("r-time").value + "\nPersonas: " + $("r-pax").value + "\nCorreo: " + $("r-mail").value + "\nMotivo: " + $("r-why").value;
+    $("waMsg").appendChild(document.createTextNode(txt));
+    var t = document.createElement("time"); t.textContent = "20:14 ✓✓"; $("waMsg").appendChild(t);
+  }
+  ["r-local","r-name","r-mail","r-date","r-time","r-pax","r-why"].forEach(function(id){ $(id).addEventListener("input", preview); $(id).addEventListener("change", preview); });
+  preview();
+  $("resForm").addEventListener("submit", function(e){
     e.preventDefault();
-    var m = document.getElementById("resMsg");
-    m.textContent = "Ejemplo de confirmación: mesa para " + document.getElementById("r-pax").value + ", " + document.getElementById("r-date").value + " a las " + document.getElementById("r-time").value + ", a nombre de " + document.getElementById("r-name").value + ".";
-    m.hidden = false;
+    var l = locales[+$("r-local").value];
+    var old = document.querySelector("#dbRows tr.new"); if (old) old.classList.remove("new");
+    var tr = document.createElement("tr"); tr.className = "new";
+    [$("r-name").value, $("r-mail").value, l.short, fmtDate($("r-date").value, true), $("r-time").value, $("r-pax").value].forEach(function(v){ var td = document.createElement("td"); td.textContent = v; tr.appendChild(td); });
+    var td = document.createElement("td"), ch = document.createElement("span"); ch.className = "chip"; ch.textContent = $("r-why").value; td.appendChild(ch); tr.appendChild(td);
+    $("dbRows").insertBefore(tr, $("dbRows").firstChild);
+    $("resMsg").hidden = false;
+  });
+
+  // Reseñas
+  var stars = $("stars"), rating = 5;
+  stars.addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    rating = +b.dataset.v;
+    stars.querySelectorAll("button").forEach(function(x){ x.classList.toggle("on", +x.dataset.v <= rating); });
+  });
+  $("revJump").addEventListener("click", function(){ $("rv-text").focus(); });
+  $("revForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var d = document.createElement("div"); d.className = "rev";
+    var top = document.createElement("div"); top.className = "top";
+    var w = document.createElement("span"); w.className = "who"; w.textContent = $("rv-name").value || "Cliente";
+    var s = document.createElement("span"); s.className = "st"; s.textContent = "★★★★★☆☆☆☆☆".slice(5 - rating, 10 - rating);
+    top.appendChild(w); top.appendChild(s);
+    var p = document.createElement("p"); p.textContent = $("rv-text").value;
+    var m = document.createElement("div"); m.className = "top";
+    var ml = document.createElement("span"); ml.className = "meta2"; ml.textContent = $("rv-local").value + " · pendiente de aprobación";
+    m.appendChild(ml);
+    d.appendChild(top); d.appendChild(p); d.appendChild(m);
+    $("revList").insertBefore(d, $("revList").firstChild);
+    $("revOk").hidden = false;
   });
 })();
 </script>
